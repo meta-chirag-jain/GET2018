@@ -3,10 +3,8 @@ package assignment17july;
 /**
  * This class takes user given values and use called functions to compute result
  * 
- * @param hex1
- *            is first hexadecimal value
- * @param hex2
- *            is second hexadecimal value
+ * @param hex1 is first hexadecimal value
+ * @param hex2 is second hexadecimal value
  */
 
 public class HexCompute {
