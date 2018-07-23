@@ -2,95 +2,81 @@ package GET2018.com.metacube.GETProgram;
 
 import java.util.*;
 
-class StackArray {
-	int[] arr;
-	int top, MAX;
-
-	StackArray(int n) // constructor
-	{
-		MAX = n;
-		arr = new int[MAX]; // creating arraylist
-		top = -1;
-	}
-
-	boolean isEmpty() // check empty
-	{
-		return (top < 0);
-	}
-
-	void push(int x) // push
-	{
-		if (top == MAX - 1) {
-			throw new IndexOutOfBoundsException("Overflow Exception");
-		} else {
-			top++;
-			arr[top] = x;
-		}
-	}
-
-	int pop() // pop
-	{
-		if (top < 0) {
-			throw new NoSuchElementException("Underflow Exception");
-		} else {
-			int x = arr[top];
-			top--;
-			return x;
-		}
-	}
-
-	int top() // top
-	{
-		if (isEmpty())
-			throw new NoSuchElementException("Underflow Exception");
-		return arr[top];
-	}
-}
-
+/**
+ * This class is created to implement various functions of stack using array.
+ * @author Chirag Jain
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
+ * 
+ */
 public class ArrayMain {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter Size of Integer Stack ");
-		int n = scan.nextInt();
+		int max = scan.nextInt();
+		
+		int[] array = new int[max];
+		int top = -1;
 
-		/* Creating object of class arrayStack */
-		StackArray stk = new StackArray(n);
-		/* Perform Stack Operations */
-
-		char ch;
+		int choice;
 		do {
 			System.out.println("\nStack Operations");
-			System.out.println("1. push");
-			System.out.println("2. pop");
-			System.out.println("3. top");
-			System.out.println("4. check empty");
+			System.out.println("1. Push");
+			System.out.println("2. Pop");
+			System.out.println("3. Top");
+			System.out.println("4. Check empty");
+			System.out.println("5. Exit");
 
-			int choice = scan.nextInt();
+			choice = scan.nextInt();
 			switch (choice) {
 			case 1:
-				System.out.println("Enter integer element to push");
 				try {
-					stk.push(scan.nextInt());
-				} catch (Exception e) {
+					if (top == max - 1) {
+						throw new IndexOutOfBoundsException("Overflow Exception");
+					}
+					System.out.println("Enter integer element to push");
+					top++;
+					array[top] = scan.nextInt();
+				}
+				catch (Exception e) {
 					System.out.println("Error : " + e.getMessage());
 				}
 				break;
+				
 			case 2:
 				try {
-					System.out.println("Popped Element = " + stk.pop());
-				} catch (Exception e) {
+					if (top < 0) {
+						throw new NoSuchElementException("Underflow Exception");
+					}
+					int poppedElement = array[top];
+					top--;
+					System.out.println("Popped Element = " + poppedElement);
+				}
+				catch (Exception e) {
 					System.out.println("Error : " + e.getMessage());
 				}
 				break;
+				
 			case 3:
 				try {
-					System.out.println("Top Element = " + stk.top());
+					if (top < 0) {
+						throw new NoSuchElementException("Underflow Exception");
+					}
+					System.out.println("Top Element = " + array[top]);
 				} catch (Exception e) {
 					System.out.println("Error : " + e.getMessage());
 				}
 				break;
+				
 			case 4:
-				System.out.println("Empty status = " + stk.isEmpty());
+				if (top < 0) {
+					System.out.println("Empty status = empty");
+				}
+				else {
+					System.out.println("Empty status = not empty");
+				}
+				break;
+
+			case 5:
 				break;
 
 			default:
@@ -98,9 +84,7 @@ public class ArrayMain {
 				break;
 			}
 
-			System.out.println("\nDo you want to continue (Type y or n) \n");
-			ch = scan.next().charAt(0);
-
-		} while (ch == 'Y' || ch == 'y');
+		} while (choice != 5);
+		scan.close();
 	}
 }
