@@ -1,11 +1,15 @@
 package GET2018.com.metacube.SCF.Assignment3;
 
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
 /**
  * This class is created to calculate area of required shape.
  * @author Chirag Jain
  * Copyright (c) 2018 Metacube.com. All rights reserved.
  */
 public class Area {
+	DecimalFormat decimalFormatSpecifier = new DecimalFormat(".##");
 	
 	/**
 	 * @param width is width of triangle
@@ -15,7 +19,7 @@ public class Area {
 	 */
 	double triangleArea(double width, double height) throws ArithmeticException {
 		double area = 0.5 * width * height;
-		return area;
+		return Double.parseDouble(decimalFormatSpecifier.format(area));
 	}
 	
 	/**
@@ -48,4 +52,15 @@ public class Area {
 		double area = 3.14 * radius * radius;
 		return area;
 	}
+	
+	public double readDoubleAndValidate() {
+		Scanner scanner = new Scanner(System.in);
+        while (!scanner.hasNextDouble()) {
+            System.out.println("It is not a valid number. Try again!");
+            scanner.next(); 
+        }
+        Double input = scanner.nextDouble();
+        scanner.close();
+        return input;
+    }
 }
