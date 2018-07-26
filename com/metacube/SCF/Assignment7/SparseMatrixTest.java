@@ -4,6 +4,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+* Copyright (c) 2018 Metacube.com. All rights reserved.
+* This class is designed to check Sparse Matrix class function
+* @author Chirag Jain
+* 
+*/
 public class SparseMatrixTest {
 
 	/**
@@ -48,7 +54,7 @@ public class SparseMatrixTest {
     public void isSymmetricalTest2() {
         SparseMatrix matrix = new SparseMatrix(new int[][]{{4, 0, 3}, {0, 5, 0}, {0, 0, 2}});
         boolean isSymmetrical = matrix.isSymmetrical();
-        System.out.println(isSymmetrical);
+
         assertFalse(isSymmetrical);
         
     }

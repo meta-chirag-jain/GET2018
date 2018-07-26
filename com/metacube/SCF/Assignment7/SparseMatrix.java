@@ -1,5 +1,11 @@
 package GET2018.com.metacube.SCF.Assignment7;
 
+/**
+* Copyright (c) 2018 Metacube.com. All rights reserved.
+* This class is designed to make a sparse matrix.
+* @author Chirag Jain
+* 
+*/
 public final class SparseMatrix {
 
 	private int[][] sparseMatrix;
@@ -50,6 +56,9 @@ public final class SparseMatrix {
 		
 	}
 	
+	/**
+	 * @return transpose of array
+	 */
 	public int[][] transpose() {
 		int[][] transpsoeArray = new int[sparseMatrix.length][3];
 		
@@ -61,6 +70,9 @@ public final class SparseMatrix {
 		return transpsoeArray;
 	}
 	
+	/**
+	 * @return true is matrix is symmetrical else false.
+	 */
 	public boolean isSymmetrical() {
 		if(rows != columns) {
 			return false;
@@ -79,6 +91,9 @@ public final class SparseMatrix {
 		return true;
 	}
 	
+	/**
+	 * @return matrix after converting from sparse matrix.
+	 */
 	public int[][] getMatrix() {
 		int[][] matrix = new int[rows][columns];
 		int row, column;
@@ -90,6 +105,11 @@ public final class SparseMatrix {
 		return matrix;
 	}
 	
+	/**
+	 * @param row is row number
+	 * @param col is column number
+	 * @return value at given row and column
+	 */
 	private int getValue(int row, int col) {
 		for(int i = 0; i < sparseMatrix.length; i++) {
 			if(sparseMatrix[i][1] == row && sparseMatrix[i][2] == col) {
@@ -99,6 +119,11 @@ public final class SparseMatrix {
 		return 0;
 	}
 	
+	/**
+	 * @param sm1 is sparse matrix 1
+	 * @param sm2 is sparse matrix 2
+	 * @return matrix after adding two sparse matrices
+	 */
 	public static int[][] addMatrices(SparseMatrix sm1, SparseMatrix sm2) {
 		if(sm1.rows != sm2.rows || sm1.columns != sm2.columns) {
 			throw new AssertionError("Array Size Mismatch.");
@@ -116,6 +141,11 @@ public final class SparseMatrix {
 		return FinalSumArray;
 	}
 	
+	/**
+	 * @param sm1 is sparse matrix 1
+	 * @param sm2 is sparse matrix 2
+	 * @return matrix after multiplying two sparse matrices
+	 */
 	public static int[][] multiplyMatrices(SparseMatrix sm1, SparseMatrix sm2) {
 		
 		if(sm1.columns != sm2.rows) {												//coz a*b and b*c is possible multiplication
