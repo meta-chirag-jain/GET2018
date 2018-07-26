@@ -1,9 +1,9 @@
 package GET2018.com.metacube.SCF.Assignment3;
 
 /**
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
  * This class accepts string input and perform required operations.
  * @author Chirag Jain
- * Copyright (c) 2018 Metacube.com. All rights reserved.
  */
 public class StringOperations {
 	/**
@@ -12,6 +12,9 @@ public class StringOperations {
 	 * @return string after reversing it
 	 */
 	String toReverse(String str) {	
+		if(str == null) {
+			throw new AssertionError("String is null.");
+		}
 		String rev = "";
 		for(int i = 0; i < str.length() ; i++) {
 		 rev = str.charAt(i) + rev;
@@ -25,6 +28,9 @@ public class StringOperations {
 	 * @return last largest string
 	 */
 	String largest(String str) {
+		if(str == null) {
+			throw new AssertionError("String is null.");
+		}
 		String largestString = "";
 		String checklarge;
 		int len = str.length();
@@ -57,6 +63,9 @@ public class StringOperations {
 	 * @return string by changing case
 	 */
 	String changeCase(String str) {
+		if(str == null) {
+			throw new AssertionError("String is null.");
+		}
 		String smallLetters = "abcdefghijklmnopqrstuvwxyz ";
 		String bigLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
 		int indexSmall, indexBig;
@@ -70,6 +79,8 @@ public class StringOperations {
 				changedString += bigLetters.charAt(indexSmall);
 			} else if(indexBig >= 0) {
 				changedString += smallLetters.charAt(indexBig);
+			} else {
+				changedString += str.charAt(i);
 			}
 		}
 		str = changedString;
@@ -83,6 +94,9 @@ public class StringOperations {
 	 * @return 1 if equal strings else 0
 	 */
 	int compareEqual(String str1, String str2) {
+		if(str1 == null || str2 == null) {
+			throw new AssertionError("String is null.");
+		}
 		if(str1.length() != str2.length()) {
 			return 0;
 		}

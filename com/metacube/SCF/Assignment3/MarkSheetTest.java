@@ -4,10 +4,40 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
+ * This class is created to check MarkSheet Class.
+ * @author Chirag Jain
+ * 
+ */
 public class MarkSheetTest {
 
 	MarkSheet marksheet = new MarkSheet();
     
+	@Test(expected = AssertionError.class)
+    public void testErrors() {
+        
+		//null input
+        double average = marksheet.averageMarks(null, 5);
+        assertEquals(65.8, average, 0.001);
+        
+        //zero input
+        average = marksheet.averageMarks(new double[]{ }, 5);
+        assertEquals(65.8, average, 0.001);
+        
+        //unequal students and given marks
+        average = marksheet.averageMarks(new double[]{80, 67, 57, 40, 85}, 6);
+        assertEquals(65.8, average, 0.001);
+        
+        //negative marks
+        average = marksheet.averageMarks(new double[]{80, -67, 57, 40, 85}, 6);
+        assertEquals(65.8, average, 0.001);
+        
+        //marks more than 100
+        average = marksheet.averageMarks(new double[]{80, 67, 57, 140, 85}, 6);
+        assertEquals(65.8, average, 0.001);
+    }
+	
     @Test
     public void testAverage() {
         

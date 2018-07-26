@@ -4,9 +4,33 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
+ * This class tests StringOperations class.
+ * @author Chirag Jain
+ */
 public class StringOperationsTest {
 
 	StringOperations string = new StringOperations();
+	
+	/**
+	 * test cases when input is null
+	 */
+	@Test(expected = AssertionError.class)
+    public void testErrors() {
+		int answer = string.compareEqual(null, "Hello");
+        assertEquals(1, answer);
+        
+        String result = string.toReverse(null);
+        assertEquals("garihC", result);
+        
+        result = string.largest(null);
+        assertEquals("World", result);
+        
+        result = string.changeCase(null);
+        assertEquals("cHIrAG jAIN", result);
+             
+	}
     
     /**
      * Test case to compare two equal strings
@@ -15,6 +39,10 @@ public class StringOperationsTest {
     public void compareStringTest1() {
        
         int result = string.compareEqual("Hello", "Hello");
+        assertEquals(1, result);
+        
+        //with special characters
+        result = string.compareEqual("He!!o", "He!!o");
         assertEquals(1, result);
     }
     
@@ -38,6 +66,14 @@ public class StringOperationsTest {
        
         String result = string.toReverse("Chirag");
         assertEquals("garihC", result);
+        
+        //with special character
+        result = string.toReverse("Chirag J@in");
+        assertEquals("ni@J garihC", result);
+        
+        //with number
+        result = string.toReverse("Chirag J4in");
+        assertEquals("ni4J garihC", result);
     }
     
     
@@ -49,17 +85,26 @@ public class StringOperationsTest {
        
         String result = string.changeCase("ChiRag Jain");
         assertEquals("cHIrAG jAIN", result);
+        
+        //special character
+        result = string.changeCase("Ch!Rag J@in");
+        assertEquals("cH!rAG j@IN", result);
+        
+        //with number
+        result = string.changeCase("Ch!Rag J@1n");
+        assertEquals("cH!rAG j@1N", result);
     }
     
     
     /**
-     * Test case to find largest word in a string
+     * Test case to find largest word in a string with special case
      */
     @Test
     public void largestWordTest1() {
        
-        String result = string.largest("My name is Prakalpa Rathore");
-        assertEquals("Prakalpa", result);
+    	//largest with special case.
+        String result = string.largest("My name is Ch!r@g Jain");
+        assertEquals("Ch!r@g", result);
     }
     
     

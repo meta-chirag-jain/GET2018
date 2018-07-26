@@ -1,9 +1,10 @@
 package GET2018.com.metacube.SCF.Assignment3;
 
 /**
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
  * This class is created to calculate area of required shape.
  * @author Chirag Jain
- * Copyright (c) 2018 Metacube.com. All rights reserved.
+ * 
  */
 public class Area {
 	
@@ -14,8 +15,11 @@ public class Area {
 	 * @throws ArithmeticException
 	 */
 	double triangleArea(double width, double height) throws ArithmeticException {
-		double area = 0.5 * width * height;
-		return area;
+		if(width <= 0 || height <= 0) {
+			throw new AssertionError("Size Invalid.");
+		}
+		
+		return 0.5 * width * height;
 	}
 	
 	/**
@@ -25,8 +29,11 @@ public class Area {
 	 * @throws ArithmeticException
 	 */
 	double rectangleArea(double width, double height) throws ArithmeticException {
-		double area = width * height;
-		return area;
+		if(width <= 0 || height <= 0) {
+			throw new AssertionError("Size Invalid.");
+		}
+		
+		return width * height;
 	}
 	
 	/**
@@ -35,8 +42,11 @@ public class Area {
 	 * @throws ArithmeticException
 	 */
 	double squareArea(double width) throws ArithmeticException {
-		double area = width * width;
-		return area;
+		if(width <= 0) {
+			throw new AssertionError("Size Invalid.");
+		}
+
+		return width * width;
 	}
 	
 	/**
@@ -45,7 +55,10 @@ public class Area {
 	 * @throws ArithmeticException
 	 */
 	double circleArea(double radius) throws ArithmeticException {
-		double area = 3.14 * radius * radius;
-		return area;
+		if(radius < 0) {														//circle with radius zero is dot.
+			throw new AssertionError("Size Invalid.");
+		}
+		
+		return 3.14 * radius * radius;
 	}
 }
