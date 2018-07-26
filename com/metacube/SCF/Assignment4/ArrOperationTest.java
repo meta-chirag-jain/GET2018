@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
  * This class is created to test ArrOperation class.
  * @author Chirag Jain
- * Copyright (c) 2018 Metacube.com. All rights reserved.
  */
 public class ArrOperationTest {
 	
@@ -20,6 +20,14 @@ public class ArrOperationTest {
 	public void findLargestMirrorEmptyArrayTest() {
 		arrayOperation.findLargestMirror(new int[]{ });
 	}
+	
+	/**
+     * Test case for largestMirrorSection if array is null
+     */
+    @Test(expected = AssertionError.class)
+    public void findLargestMirrorNullTest() {
+        arrayOperation.findLargestMirror(null);
+    }
 	
 	/**
      * Test case for largestMirrorSection if array is not empty
@@ -62,6 +70,13 @@ public class ArrOperationTest {
         arrayOperation.countClumps(new int[]{});
     }
     
+    /**
+     * Test case for noOfClumps if array is null
+     */
+    @Test(expected = AssertionError.class)
+    public void countClumpsNullTest() {
+        arrayOperation.countClumps(null);
+    }
     
 
     /**
@@ -91,6 +106,16 @@ public class ArrOperationTest {
     public void fixXYTest1() {
        
         int[] fixXY = arrayOperation.fixXY(new int[]{},4,5);
+        assertEquals(1, fixXY);
+    }
+    
+    /**
+     * Test case for fixXY if array is null
+     */
+    @Test(expected = AssertionError.class)
+    public void fixXYNullTest() {
+       
+        int[] fixXY = arrayOperation.fixXY(null, 4, 5);
         assertEquals(1, fixXY);
     }
     
@@ -167,6 +192,16 @@ public class ArrOperationTest {
 	public void splitArrayTest3() {
 		
 		int splitIndex = arrayOperation.splitArray(new int[]{});
+		assertEquals(1, splitIndex);
+	}
+	
+	/**
+	 * Test case for splitArray if array is empty
+	 */
+	@Test(expected = AssertionError.class)
+	public void splitArrayNullTest() {
+		
+		int splitIndex = arrayOperation.splitArray(null);
 		assertEquals(1, splitIndex);
 	}
 }

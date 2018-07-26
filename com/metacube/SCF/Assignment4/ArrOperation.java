@@ -1,6 +1,8 @@
 package GET2018.com.metacube.SCF.Assignment4;
 
 /**
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
+ * 
  * This class is created to perform following operation on array
  * 1. Return the size of the largest mirror section found in the input array.
  * 2. Return the number of clumps in the input array.
@@ -8,7 +10,6 @@ package GET2018.com.metacube.SCF.Assignment4;
  * 4. Split Array such that 
  * 
  * @author Chirag Jain
- * Copyright (c) 2018 Metacube.com. All rights reserved.
  *
  */
 public class ArrOperation {
@@ -21,10 +22,15 @@ public class ArrOperation {
 	 * @return length of largest mirror section.
 	 */
 	public int findLargestMirror(int[] inputArray) {
-		arrayLength = inputArray.length;
-		if(arrayLength == 0) {
+		
+		if(inputArray == null) {
+			throw new AssertionError("Array can't be null.");
+		}
+		if(inputArray.length == 0) {
 			throw new AssertionError("Array can't be empty.");
 		}
+		
+		arrayLength = inputArray.length;
 		
 		int maxMirrorLength = 0;
 		int mirrorLength;
@@ -61,13 +67,17 @@ public class ArrOperation {
 	 * @return total number of clumps in the input array.
 	 */
 	int countClumps(int[] inputArray) {
-		arrayLength = inputArray.length;
-		int totalClumps = 0;
 		
-		if(arrayLength == 0) {
+		if(inputArray == null) {
+			throw new AssertionError("Array can't be null.");
+		}
+		if(inputArray.length == 0) {
 			throw new AssertionError("Array can't be empty.");
 		}
 		
+		arrayLength = inputArray.length;
+		int totalClumps = 0;
+			
 		for(int i=0; i<arrayLength-1; i++) {
 			if(inputArray[i] == inputArray[i+1]) {
 				totalClumps++;
@@ -85,7 +95,7 @@ public class ArrOperation {
 	 * @param x is element 1.
 	 * @param y is element 2.
 	 * @param indexOfX is index of element 1.
-	 * @return array after swapping x elemen 1 and element 2.
+	 * @return array after swapping x element 1 and element 2.
 	 */
 	int[] swap(int[] inputArray, int x, int y, int indexOfX) {
 		for(int i=0; i<inputArray.length; i++) {
@@ -113,13 +123,18 @@ public class ArrOperation {
 	 * @return rearranged array so that every X is immediately followed by a Y.
 	 */
 	int[] fixXY(int[] inputArray, int x, int y) {
+		
+		if(inputArray == null) {
+			throw new AssertionError("Array can't be null.");
+		}
+		if(inputArray.length == 0) {
+			throw new AssertionError("Array can't be empty.");
+		}
+		
 		int xCount = 0;
 		int yCount = 0;
 		
 		int arrayLength = inputArray.length;
-		if(arrayLength == 0) {
-			throw new AssertionError("Array can't be empty.");
-		}
 		
 		if(inputArray[arrayLength-1] == x) {
 			throw new AssertionError("Last element can't be equal to x.");
@@ -158,10 +173,14 @@ public class ArrOperation {
 	 */
 	int splitArray(int[] inputArray) {
 		
-		arrayLength = inputArray.length;
-		if(arrayLength == 0) {
+		if(inputArray == null) {
+			throw new AssertionError("Array can't be null.");
+		}
+		if(inputArray.length == 0) {
 			throw new AssertionError("Array can't be empty.");
 		}
+		
+		arrayLength = inputArray.length;
 		
 		int totalArraySum = 0;
 		for(int i=0; i<arrayLength; i++) {
