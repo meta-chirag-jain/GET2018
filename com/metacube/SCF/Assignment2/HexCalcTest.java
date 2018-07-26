@@ -4,6 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * This is a test class for HexCalc class.
+ * @author Chirag Jain
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
+ */
 public class HexCalcTest {
 
 	HexCalc operation = new HexCalc();
@@ -23,6 +28,7 @@ public class HexCalcTest {
 		
 		result = operation.convertHexToDec("A");
 		assertEquals(10, result);
+
 	}
 	
 	@Test
@@ -46,6 +52,12 @@ public class HexCalcTest {
 	@Test(expected = AssertionError.class)
     public void divideByZeroTest() {        
         answer = operation.divHex("2b87c4", "0");
+    }
+	
+	@Test(expected = AssertionError.class)
+    public void nullStringTest() {        
+		result = operation.convertHexToDec(" ");
+		assertEquals(" ", result);
     }
 	
     @Test

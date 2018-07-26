@@ -1,17 +1,39 @@
 package GET2018.com.metacube.SCF.Assignment2;
 
+/**
+ * This class is a calculator for performing operations on HexaDecimal Values.
+ * @author Chirag Jain
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
+ */
 public class HexCalc {
 	
-	private int decValue1, decValue2, answer;
 	private String digits  = "0123456789ABCDEF";
-	private String result;
 
+	/**
+	 * A utility function to check if errors in input.
+	 * @param job is array of arrival time and burst time of process.
+	 * @param size is number of process.
+	 */
+	void checkError(int[][] job, int size) {
+		if(size == 0) {
+			throw new AssertionError("No jobs to show result");
+		}
+		for(int i=0; i<size; i++) {
+			if(job[i][0] < 0 || job[i][1] < 0) {
+					throw new AssertionError("Negative value found.");
+			}		
+		}
+	}
+	
 	/**
 	 * This function converts hexadecimal value to decimal value.
 	 * @param hexValue is given hexadecimal value.
 	 * @return decimal value of given hexadecimal value.
 	 */
 	int convertHexToDec(String hexValue) {
+		if(hexValue == null || hexValue == " ") {
+			throw new AssertionError("Empty String.");
+		}
 		int decValue = 0;
 		int index;
 		hexValue = hexValue.toUpperCase();
@@ -45,10 +67,10 @@ public class HexCalc {
 	 * @return hexadecimal value after addition
 	 */
 	String addHex(String hexValue1, String hexValue2) {
-		decValue1 = convertHexToDec(hexValue1);
-		decValue2 = convertHexToDec(hexValue2);
-		answer = decValue1 + decValue2;
-		result = convertDecToHex(answer);
+		int decValue1 = convertHexToDec(hexValue1);
+		int decValue2 = convertHexToDec(hexValue2);
+		int answer = decValue1 + decValue2;
+		String result = convertDecToHex(answer);
 		return result;
 	}
 
@@ -57,9 +79,10 @@ public class HexCalc {
 	 * @return hexadecimal value after subtraction
 	 */
 	String subHex(String hexValue1, String hexValue2) {
-		decValue1 = convertHexToDec(hexValue1);
-		decValue2 = convertHexToDec(hexValue2);
-		answer = decValue1 - decValue2;
+		int decValue1 = convertHexToDec(hexValue1);
+		int decValue2 = convertHexToDec(hexValue2);
+		int answer = decValue1 - decValue2;
+		String result;
 		if(answer < 0) {
 			answer = Math.abs(answer);
 			result = "-" + convertDecToHex(answer);
@@ -74,10 +97,10 @@ public class HexCalc {
 	 * @return hexadecimal value after multiplication
 	 */
 	String mulHex(String hexValue1, String hexValue2) {
-		decValue1 = convertHexToDec(hexValue1);
-		decValue2 = convertHexToDec(hexValue2);
-		answer = decValue1 * decValue2;
-		result = convertDecToHex(answer);
+		int decValue1 = convertHexToDec(hexValue1);
+		int decValue2 = convertHexToDec(hexValue2);
+		int answer = decValue1 * decValue2;
+		String result = convertDecToHex(answer);
 		return result;
 	}
 
@@ -86,13 +109,13 @@ public class HexCalc {
 	 * @return hexadecimal value after division
 	 */
 	String divHex(String hexValue1, String hexValue2) {
-		decValue1 = convertHexToDec(hexValue1);
-		decValue2 = convertHexToDec(hexValue2);
+		int decValue1 = convertHexToDec(hexValue1);
+		int decValue2 = convertHexToDec(hexValue2);
 		if(decValue2 == 0) {
 			throw new AssertionError("Cant divide by zero");
 		}
-		answer = decValue1 / decValue2;
-		result = convertDecToHex(answer);
+		int answer = decValue1 / decValue2;
+		String result = convertDecToHex(answer);
 		return result;
 	}
 	

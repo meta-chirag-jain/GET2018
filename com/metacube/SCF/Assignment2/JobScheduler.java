@@ -1,5 +1,10 @@
 package GET2018.com.metacube.SCF.Assignment2;
 
+/**
+ * This class is designed to be a JOb Scheduler on basis of First Come First Serve
+ * @author Chirag Jain
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
+ */
 public class JobScheduler {
 	
 	/**

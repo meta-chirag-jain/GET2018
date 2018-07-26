@@ -4,6 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * This is a test class for checking JobSheduler class.
+ * @author Chirag Jain
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
+ */
 public class JobSchedulerTest {
 
 	JobScheduler calculate = new JobScheduler();
