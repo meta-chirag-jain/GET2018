@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
  * This is a test class for HexCalc class.
  * @author Chirag Jain
- * Copyright (c) 2018 Metacube.com. All rights reserved.
  */
 public class HexCalcTest {
 
@@ -23,6 +23,10 @@ public class HexCalcTest {
 		answer = operation.convertDecToHex(289);
 		assertEquals("121", answer);
 		
+		//decimal value 0
+		answer = operation.convertDecToHex(0);
+		assertEquals("0", answer);
+		
 		result = operation.convertHexToDec("121");
 		assertEquals(289, result);
 		
@@ -33,25 +37,26 @@ public class HexCalcTest {
 	
 	@Test
 	public void computeTest() {
-		answer = operation.addHex("A", "5");
+		answer = operation.addHexadecimal("A", "5");
 		assertEquals("F", answer);
 		
-		answer = operation.subHex("a12b4", "2b87c4");
+		//negative subtraction result test
+		answer = operation.subtractHexadecimal("a12b4", "2b87c4");
 		assertEquals("-217510", answer);
 		
-		answer = operation.subHex("2b87c4", "a12b4");
+		answer = operation.subtractHexadecimal("2b87c4", "a12b4");
 		assertEquals("217510", answer);
 		
-		answer = operation.mulHex("A", "5");
+		answer = operation.multiplyHexadecimal("A", "5");
 		assertEquals("32", answer);
 		
-		answer = operation.divHex("A", "5");
+		answer = operation.divideHexadecimal("A", "5");
 		assertEquals("2", answer);
 	}
 	
 	@Test(expected = AssertionError.class)
     public void divideByZeroTest() {        
-        answer = operation.divHex("2b87c4", "0");
+        answer = operation.divideHexadecimal("2b87c4", "0");
     }
 	
 	@Test(expected = AssertionError.class)

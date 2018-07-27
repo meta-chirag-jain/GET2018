@@ -1,10 +1,11 @@
 package GET2018.com.metacube.SCF.Assignment2;
 
 /**
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
  * This class is designed to be a JOb Scheduler on basis of First Come First Serve
  * @author Chirag Jain
- * Copyright (c) 2018 Metacube.com. All rights reserved.
  */
+
 public class JobScheduler {
 	
 	/**
@@ -16,6 +17,11 @@ public class JobScheduler {
 		if(size == 0) {
 			throw new AssertionError("No jobs to show result");
 		}
+		
+		if(size != job.length) {
+			throw new AssertionError("Wrong number of jobs given.");
+		}
+		
 		for(int i=0; i<size; i++) {
 			if(job[i][0] < 0 || job[i][1] < 0) {
 					throw new AssertionError("Negative value found.");
