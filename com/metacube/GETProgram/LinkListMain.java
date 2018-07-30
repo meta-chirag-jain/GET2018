@@ -16,9 +16,8 @@ public class LinkListMain {
 		Scanner scan = new Scanner(System.in);
 		int max = scan.nextInt();
 		
-		LinkedList<Integer> stackList = new LinkedList<Integer>();
+		StackLinkList listOperation = new StackLinkList(max);
 		
-		int top = -1;
 		int choice;
 		
 		do {
@@ -31,14 +30,10 @@ public class LinkListMain {
 
 			choice = scan.nextInt();
 			switch (choice) {
-			case 1:
-				System.out.println("Enter integer element to push");
+			case 1:	
 				try {
-					if (top == max - 1) {
-						throw new IndexOutOfBoundsException("Overflow Exception");
-					}
-					stackList.add(scan.nextInt());
-					top++;
+					System.out.println("Enter integer element to push");
+					listOperation.push(scan.nextInt());
 				} catch (Exception e) {
 					System.out.println("Error : " + e.getMessage());
 				}
@@ -46,12 +41,8 @@ public class LinkListMain {
 				
 			case 2:
 				try {
-					if (top < 0) {
-						throw new NoSuchElementException("Underflow Exception");
-					}
-					System.out
-							.println("Popped Element = " + stackList.removeLast());
-					top--;
+					int poppedElement = listOperation.pop();
+					System.out.println("Popped Element = " + poppedElement);
 				} catch (Exception e) {
 					System.out.println("Error : " + e.getMessage());
 				}
@@ -59,22 +50,14 @@ public class LinkListMain {
 				
 			case 3:
 				try {
-					if (top < 0) {
-						throw new NoSuchElementException("Underflow Exception");
-					}
-					System.out.println("Top Element = " + stackList.getLast());
+					System.out.println("Top Element = " + listOperation.top());
 				} catch (Exception e) {
 					System.out.println("Error : " + e.getMessage());
 				}
 				break;
 				
 			case 4:
-				if (top < 0) {
-					System.out.println("Empty status = empty");
-				}
-				else {
-					System.out.println("Empty status = not empty");
-				}
+				System.out.println("Empty status = " + listOperation.isEmpty());
 				break;
 				
 			case 5:

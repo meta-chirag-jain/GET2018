@@ -13,12 +13,12 @@ public class ArrayMain {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter Size of Integer Stack ");
 		int max = scan.nextInt();
-		
-		int[] array = new int[max];
-		int top = -1;
 
+		StackArray operation = new StackArray(max);
+		
 		int choice;
 		do {
+			
 			System.out.println("\nStack Operations");
 			System.out.println("1. Push");
 			System.out.println("2. Pop");
@@ -30,12 +30,8 @@ public class ArrayMain {
 			switch (choice) {
 			case 1:
 				try {
-					if (top == max - 1) {
-						throw new IndexOutOfBoundsException("Overflow Exception");
-					}
 					System.out.println("Enter integer element to push");
-					top++;
-					array[top] = scan.nextInt();
+					operation.push(scan.nextInt());
 				}
 				catch (Exception e) {
 					System.out.println("Error : " + e.getMessage());
@@ -44,11 +40,7 @@ public class ArrayMain {
 				
 			case 2:
 				try {
-					if (top < 0) {
-						throw new NoSuchElementException("Underflow Exception");
-					}
-					int poppedElement = array[top];
-					top--;
+					int poppedElement = operation.pop();
 					System.out.println("Popped Element = " + poppedElement);
 				}
 				catch (Exception e) {
@@ -58,22 +50,15 @@ public class ArrayMain {
 				
 			case 3:
 				try {
-					if (top < 0) {
-						throw new NoSuchElementException("Underflow Exception");
-					}
-					System.out.println("Top Element = " + array[top]);
+					int topElement = operation.top();
+					System.out.println("Top Element = " + topElement);
 				} catch (Exception e) {
 					System.out.println("Error : " + e.getMessage());
 				}
 				break;
 				
 			case 4:
-				if (top < 0) {
-					System.out.println("Empty status = empty");
-				}
-				else {
-					System.out.println("Empty status = not empty");
-				}
+				System.out.println("Empty status = " + operation.isEmpty());
 				break;
 
 			case 5:
