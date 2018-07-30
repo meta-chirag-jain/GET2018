@@ -5,7 +5,7 @@ public class Animal {
 	String name;
 	int id;
 	int age;
-	float weight;
+	AnimalCategory species;
 	String sound;
 	
 	String getName() {
@@ -20,8 +20,8 @@ public class Animal {
 		return age;
 	}
 	
-	float getWeight() {
-		return weight;
+	AnimalCategory getSpecies() {
+		return species;
 	}
 	
 	String getSound(){
