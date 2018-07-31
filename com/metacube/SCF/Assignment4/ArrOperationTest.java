@@ -103,7 +103,7 @@ public class ArrOperationTest {
      * Test case for fixXY if array is empty
      */
     @Test(expected = AssertionError.class)
-    public void fixXYTest1() {
+    public void fixXYEmptyArrayTest() {
        
         int[] fixXY = arrayOperation.fixXY(new int[]{},4,5);
         assertEquals(1, fixXY);
@@ -124,7 +124,7 @@ public class ArrOperationTest {
      * Test case for fixXY if array cannot be rearranged because of two adjacent X
      */
     @Test(expected = AssertionError.class)
-    public void fixXYTest2() {
+    public void fixXYAdjacentXTest() {
    
         int[] fixXY = arrayOperation.fixXY(new int[]{1, 4, 4, 5, 3, 5, 1}, 4, 5);
         assertEquals(1, fixXY);
@@ -135,7 +135,7 @@ public class ArrOperationTest {
      * Test case for fixXY if array cannot be rearranged because X is at last position
      */
     @Test(expected = AssertionError.class)
-    public void fixXYTest3() {
+    public void fixXYLastXTest() {
    
         int[] fixXY = arrayOperation.fixXY(new int[]{1, 5, 1, 4}, 4, 5);
         assertEquals(1, fixXY);
@@ -146,7 +146,7 @@ public class ArrOperationTest {
      * Test case for fixXY if array cannot be rearranged because of unequal X & Y
      */
     @Test(expected = AssertionError.class)
-    public void fixXYTest4() {
+    public void fixXYMoreXTest() {
    
         int[] fixXY = arrayOperation.fixXY(new int[]{1, 4, 1, 5, 3, 4, 1}, 4, 5);
         assertEquals(1, fixXY);
@@ -156,7 +156,7 @@ public class ArrOperationTest {
      * Test case for fixXY if array cannot be rearranged because of unequal X & Y
      */
     @Test(expected = AssertionError.class)
-    public void fixXYTest5() {
+    public void fixXYMoreYTest() {
    
         int[] fixXY = arrayOperation.fixXY(new int[]{1, 4, 1, 5, 3, 5, 4, 1, 5}, 4, 5);
         assertEquals(1, fixXY);
@@ -166,7 +166,7 @@ public class ArrOperationTest {
 	 * Test case for splitArray if array can be split
 	 */
 	@Test
-	public void splitArrayTest1() {
+	public void splitArrayPossibleTest() {
 		
 		int splitIndex = arrayOperation.splitArray(new int[]{1, 1, 1, 2, 1});
 		assertEquals(3, splitIndex);
@@ -179,7 +179,7 @@ public class ArrOperationTest {
 	 * Test case for splitArray if array cannot be split
 	 */
 	@Test
-	public void splitArrayTest2() {
+	public void splitArrayNotPossibleTest() {
 		
 		int splitIndex = arrayOperation.splitArray(new int[]{2, 1, 1, 2, 1});
 		assertEquals(-1, splitIndex);
@@ -189,7 +189,7 @@ public class ArrOperationTest {
 	 * Test case for splitArray if array is empty
 	 */
 	@Test(expected = AssertionError.class)
-	public void splitArrayTest3() {
+	public void splitArrayEmptyArrayTest() {
 		
 		int splitIndex = arrayOperation.splitArray(new int[]{});
 		assertEquals(1, splitIndex);

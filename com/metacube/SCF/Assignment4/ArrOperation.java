@@ -14,8 +14,6 @@ package GET2018.com.metacube.SCF.Assignment4;
  */
 public class ArrOperation {
 	
-	private int arrayLength;
-	
 	/**
 	 * This function returns the size of the largest mirror section found in the input array.
 	 * @param inputArray is the array given by the user.
@@ -30,18 +28,16 @@ public class ArrOperation {
 			throw new AssertionError("Array can't be empty.");
 		}
 		
-		arrayLength = inputArray.length;
+		int arrayLength = inputArray.length;
 		
 		int maxMirrorLength = 0;
-		int mirrorLength;
-		int front, back;
 			
 		for(int i=0; i<arrayLength-1; i++) {
-			mirrorLength = 0;
+			int mirrorLength = 0;
 
 			for(int j=arrayLength-1; j>i; j--) {				
-				front = i;
-				back = j;
+				int front = i;
+				int back = j;
 				
 				while(inputArray[front] == inputArray[back] && front <= back) {
 					mirrorLength++;
@@ -75,7 +71,7 @@ public class ArrOperation {
 			throw new AssertionError("Array can't be empty.");
 		}
 		
-		arrayLength = inputArray.length;
+		int arrayLength = inputArray.length;
 		int totalClumps = 0;
 			
 		for(int i=0; i<arrayLength-1; i++) {
@@ -180,7 +176,7 @@ public class ArrOperation {
 			throw new AssertionError("Array can't be empty.");
 		}
 		
-		arrayLength = inputArray.length;
+		int arrayLength = inputArray.length;
 		
 		int totalArraySum = 0;
 		for(int i=0; i<arrayLength; i++) {
