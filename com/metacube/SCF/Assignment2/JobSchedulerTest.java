@@ -50,6 +50,7 @@ public class JobSchedulerTest {
 		assertArrayEquals(wait, waitResult);
 	}
 	
+	//wrong number of jobs test
 	@Test(expected = AssertionError.class)
 	public void wrongSizeTestJS() {
 		int[] waitResult = calculate.waitTime(new int[][]{{0, 10} ,{6, 20}, {60, 50}, {70, 10}}, 5);

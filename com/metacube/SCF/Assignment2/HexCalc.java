@@ -14,7 +14,7 @@ public class HexCalc {
 	 * @param hexValue is given hexadecimal value.
 	 * @return decimal value of given hexadecimal value.
 	 */
-	int convertHexToDec(String hexValue) {
+	public int convertHexToDec(String hexValue) {
 		if(hexValue == null || hexValue == " ") {
 			throw new AssertionError("Empty String.");
 		}
@@ -34,7 +34,10 @@ public class HexCalc {
 	 * @param decValue is given decimal value.
 	 * @return Hexadecimal value of given decimal value.
 	 */
-	String convertDecToHex(int decValue) {
+	public String convertDecToHex(int decValue) {
+		/*if(decValue == null) {
+			throw new AssertionError("Null pointer error");
+		}*/
 		if(decValue == 0) {
 			return "0";
 		}
@@ -54,7 +57,7 @@ public class HexCalc {
 	 * @requires two hexadecimal values from constructor
 	 * @return hexadecimal value after addition
 	 */
-	String addHexadecimal(String hexValue1, String hexValue2) {
+	public String addHexadecimal(String hexValue1, String hexValue2) {
 		int decValue1 = convertHexToDec(hexValue1);
 		int decValue2 = convertHexToDec(hexValue2);
 		int answer = decValue1 + decValue2;
@@ -66,7 +69,7 @@ public class HexCalc {
 	 * @requires two hexadecimal values from constructor
 	 * @return hexadecimal value after subtraction
 	 */
-	String subtractHexadecimal(String hexValue1, String hexValue2) {
+	public String subtractHexadecimal(String hexValue1, String hexValue2) {
 		int decValue1 = convertHexToDec(hexValue1);
 		int decValue2 = convertHexToDec(hexValue2);
 		int answer = decValue1 - decValue2;
@@ -84,7 +87,7 @@ public class HexCalc {
 	 * @requires two hexadecimal values from constructor
 	 * @return hexadecimal value after multiplication
 	 */
-	String multiplyHexadecimal(String hexValue1, String hexValue2) {
+	public String multiplyHexadecimal(String hexValue1, String hexValue2) {
 		int decValue1 = convertHexToDec(hexValue1);
 		int decValue2 = convertHexToDec(hexValue2);
 		int answer = decValue1 * decValue2;
@@ -96,7 +99,7 @@ public class HexCalc {
 	 * @requires two hexadecimal values from constructor
 	 * @return hexadecimal value after division
 	 */
-	String divideHexadecimal(String hexValue1, String hexValue2) {
+	public String divideHexadecimal(String hexValue1, String hexValue2) {
 		int decValue1 = convertHexToDec(hexValue1);
 		int decValue2 = convertHexToDec(hexValue2);
 		if(decValue2 == 0) {
@@ -111,7 +114,10 @@ public class HexCalc {
 	 * @requires two hexadecimal values from constructor
 	 * @return true if value 1 is greater else false
 	 */
-	boolean isGreater(String hexValue1, String hexValue2) {
+	public boolean isGreater(String hexValue1, String hexValue2) {
+		if(hexValue1 == null || hexValue2 == null) {
+			throw new AssertionError("Null string passed");
+		}
 		hexValue1 = hexValue1.replaceFirst ("^0*", "");
 		hexValue2 = hexValue2.replaceFirst ("^0*", "");
 		if(hexValue1.length() != hexValue2.length()) {
@@ -134,7 +140,10 @@ public class HexCalc {
 	 * @requires two hexadecimal values from constructor
 	 * @return true if value 1 is smaller else false
 	 */
-	boolean isSmaller(String hexValue1, String hexValue2) {
+	public boolean isSmaller(String hexValue1, String hexValue2) {
+		if(hexValue1 == null || hexValue2 == null) {
+			throw new AssertionError("Null string passed");
+		}
 		hexValue1 = hexValue1.replaceFirst ("^0*", "");
 		hexValue2 = hexValue2.replaceFirst ("^0*", "");
 		if(hexValue1.length() != hexValue2.length()) {
@@ -157,7 +166,10 @@ public class HexCalc {
 	 * @requires two hexadecimal values from constructor
 	 * @return true if values are equal else false
 	 */
-	boolean isEqual(String hexValue1, String hexValue2) {
+	public boolean isEqual(String hexValue1, String hexValue2) {
+		if(hexValue1 == null || hexValue2 == null) {
+			throw new AssertionError("Null string passed");
+		}
 		hexValue1 = hexValue1.replaceFirst ("^0*", "");
 		hexValue2 = hexValue2.replaceFirst ("^0*", "");
 		return hexValue1.equals(hexValue2);

@@ -15,6 +15,7 @@ public class HexCalcTest {
 	String answer;
 	int result;
 	
+	//convert
 	@Test
 	public void convertTest() {
 		answer = operation.convertDecToHex(10);
@@ -35,6 +36,7 @@ public class HexCalcTest {
 
 	}
 	
+	//compute
 	@Test
 	public void computeTest() {
 		answer = operation.addHexadecimal("A", "5");
@@ -60,11 +62,18 @@ public class HexCalcTest {
     }
 	
 	@Test(expected = AssertionError.class)
-    public void nullStringTest() {        
+    public void emptyStringTest() {        
 		result = operation.convertHexToDec(" ");
 		assertEquals(" ", result);
     }
 	
+	@Test(expected = AssertionError.class)
+    public void nullStringTest() {        
+		result = operation.convertHexToDec(null);
+		assertEquals(" ", result);
+    }
+	
+	//compare equal
     @Test
     public void testIsEqual() {
         
@@ -75,6 +84,37 @@ public class HexCalcTest {
         assertFalse(result);
     }
     
+    @Test(expected = AssertionError.class)
+    public void isEqualNullTest1() {
+        
+        boolean result = operation.isEqual(null, "a12b4");
+        assertTrue(result);
+        
+        result = operation.isEqual("2b87c4", "a12b4");
+        assertFalse(result);
+    }
+    
+    @Test(expected = AssertionError.class)
+    public void isEqualNullTest2() {
+        
+        boolean result = operation.isEqual("a12b4", null);
+        assertTrue(result);
+        
+        result = operation.isEqual("2b87c4", "a12b4");
+        assertFalse(result);
+    }
+    
+    @Test(expected = AssertionError.class)
+    public void isEqualNullTest3() {
+        
+        boolean result = operation.isEqual(null, null);
+        assertTrue(result);
+        
+        result = operation.isEqual("2b87c4", "a12b4");
+        assertFalse(result);
+    }
+    
+    //compare greater than
     @Test
     public void testIsGreaterThan() {
         
@@ -85,6 +125,37 @@ public class HexCalcTest {
         assertFalse(result);
     }
     
+    @Test(expected = AssertionError.class)
+    public void isGreaterThanTestNull1() {
+        
+        boolean result = operation.isGreater(null, "a12b4");
+        assertTrue(result);
+        
+        result = operation.isGreater("a12b4", "2b87c4");
+        assertFalse(result);
+    }
+    
+    @Test(expected = AssertionError.class)
+    public void isGreaterThanTestNull2() {
+        
+        boolean result = operation.isGreater("2b87c4", null);
+        assertTrue(result);
+        
+        result = operation.isGreater("a12b4", "2b87c4");
+        assertFalse(result);
+    }
+    
+    @Test(expected = AssertionError.class)
+    public void isGreaterThanTestNull3() {
+        
+        boolean result = operation.isGreater(null, null);
+        assertTrue(result);
+        
+        result = operation.isGreater("a12b4", "2b87c4");
+        assertFalse(result);
+    }
+    
+    //compare less than
     @Test
     public void testIsLessThan() {
         
@@ -94,5 +165,37 @@ public class HexCalcTest {
         result = operation.isSmaller("a12b4", "2b87c4");
         assertTrue(result);
     }
+    
+    @Test(expected = AssertionError.class)
+    public void isLessThanNullTest1() {
+        
+        boolean result = operation.isSmaller(null, "a12b4");
+        assertFalse(result);
+        
+        result = operation.isSmaller("a12b4", "2b87c4");
+        assertTrue(result);
+    }
+    
+    @Test(expected = AssertionError.class)
+    public void isLessThanNullTest2() {
+        
+        boolean result = operation.isSmaller("2b87c4", null);
+        assertFalse(result);
+        
+        result = operation.isSmaller("a12b4", "2b87c4");
+        assertTrue(result);
+    }
+    
+    @Test(expected = AssertionError.class)
+    public void isLessThanNullTest3() {
+        
+        boolean result = operation.isSmaller(null, null);
+        assertFalse(result);
+        
+        result = operation.isSmaller("a12b4", "2b87c4");
+        assertTrue(result);
+    }
+    
+    
 
 }
