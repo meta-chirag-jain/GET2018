@@ -44,6 +44,10 @@ public class StringOperationsTest {
         //with special characters
         result = string.compareEqual("He!!o", "He!!o");
         assertEquals(1, result);
+        
+        //empty string
+        result = string.compareEqual("", "");
+        assertEquals(1, result);
     }
     
     
@@ -74,6 +78,10 @@ public class StringOperationsTest {
         //with number
         result = string.toReverse("Chirag J4in");
         assertEquals("ni4J garihC", result);
+        
+        //empty string
+        result = string.toReverse("");
+        assertEquals("", result);
     }
     
     
@@ -93,6 +101,10 @@ public class StringOperationsTest {
         //with number
         result = string.changeCase("Ch!Rag J@1n");
         assertEquals("cH!rAG j@1N", result);
+        
+        //empty string
+        result = string.changeCase("");
+        assertEquals("", result);
     }
     
     
@@ -105,6 +117,10 @@ public class StringOperationsTest {
     	//largest with special case.
         String result = string.largest("My name is Ch!r@g Jain");
         assertEquals("Ch!r@g", result);
+        
+        //empty string
+        result = string.largest("");
+        assertEquals("", result);
     }
     
     
