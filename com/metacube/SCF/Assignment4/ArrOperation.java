@@ -66,7 +66,7 @@ public class ArrOperation {
 	 * @param inputArray is the array given by the user.
 	 * @return total number of clumps in the input array.
 	 */
-	int countClumps(int[] inputArray) {
+	public int countClumps(int[] inputArray) {
 		
 		if(inputArray == null) {
 			throw new AssertionError("Array can't be null.");
@@ -97,7 +97,7 @@ public class ArrOperation {
 	 * @param indexOfX is index of element 1.
 	 * @return array after swapping x element 1 and element 2.
 	 */
-	int[] swap(int[] inputArray, int x, int y, int indexOfX) {
+	public int[] swap(int[] inputArray, int x, int y, int indexOfX) {
 		for(int i=0; i<inputArray.length; i++) {
 			if(inputArray[i] == y && i == 0) {
 				int temp = inputArray[indexOfX+1];
@@ -122,7 +122,7 @@ public class ArrOperation {
 	 * @param y is element 2.
 	 * @return rearranged array so that every X is immediately followed by a Y.
 	 */
-	int[] fixXY(int[] inputArray, int x, int y) {
+	public int[] fixXY(int[] inputArray, int x, int y) {
 		
 		if(inputArray == null) {
 			throw new AssertionError("Array can't be null.");
@@ -171,7 +171,7 @@ public class ArrOperation {
 	 * @param inputArray is the array given by the user.
 	 * @return the index where sum of the numbers is equal on both side else return -1
 	 */
-	int splitArray(int[] inputArray) {
+	public int splitArray(int[] inputArray) {
 		
 		if(inputArray == null) {
 			throw new AssertionError("Array can't be null.");
