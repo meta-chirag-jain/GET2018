@@ -1,5 +1,10 @@
 package GET2018.com.metacube.GETProgram;
 
+/**
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
+ * This class is designed to implement various shopping cart functions.
+ * @author Chirag Jain
+ */
 public class ShoppingCartMain {
 	
 	public static void main(String[] args)
