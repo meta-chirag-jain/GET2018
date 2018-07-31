@@ -3,10 +3,9 @@ package GET2018.com.metacube.GETProgram;
 import java.util.*;
 
 /**
- * This class is created to implement various functions of stack using LinkedList.
- * @author Chirag Jain
  * Copyright (c) 2018 Metacube.com. All rights reserved.
- * 
+ * This class is created to implement various functions of stack using LinkedList.
+ * @author Chirag Jain 
  */
 public class LinkListMain {
 	

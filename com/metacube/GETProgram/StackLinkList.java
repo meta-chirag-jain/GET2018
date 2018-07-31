@@ -4,17 +4,16 @@ import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 /**
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
  * This class is created to implement various functions of stack using LinkedList.
  * @author Chirag Jain
- * Copyright (c) 2018 Metacube.com. All rights reserved.
- * 
  */
 public class StackLinkList {
 
 	private int max, top;
-	LinkedList<Integer> stackList;
+	private LinkedList<Integer> stackList;
 	
-	StackLinkList(int max) {
+	public StackLinkList(int max) {
 		this.max = max;
 		this.stackList = new LinkedList<Integer>();
 		top = -1;

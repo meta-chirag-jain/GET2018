@@ -3,13 +3,14 @@ package GET2018.com.metacube.GETProgram;
 import java.util.*;
 
 /**
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
  * This class is created to implement various functions of stack using array.
  * @author Chirag Jain
- * Copyright (c) 2018 Metacube.com. All rights reserved.
- * 
  */
 public class ArrayMain {
+	
 	public static void main(String[] args) {
+		
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter Size of Integer Stack ");
 		int max = scan.nextInt();

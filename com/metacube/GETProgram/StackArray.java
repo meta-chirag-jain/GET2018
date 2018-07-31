@@ -3,17 +3,17 @@ package GET2018.com.metacube.GETProgram;
 import java.util.NoSuchElementException;
 
 /**
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
  * This class is created to implement various functions of stack using array.
  * @author Chirag Jain
- * Copyright (c) 2018 Metacube.com. All rights reserved.
- * 
  */
+
 public class StackArray {
 
 	private int max, top;
 	private int[] array;
 	
-	StackArray(int max) {
+	public StackArray(int max) {
 		this.max = max;
 		this.array = new int[max];
 		this.top = -1;

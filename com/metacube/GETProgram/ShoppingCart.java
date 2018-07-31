@@ -2,10 +2,9 @@ package GET2018.com.metacube.GETProgram;
 import java.util.*;
 
 /**
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
  * This class is designed to create various shopping cart functions.
  * @author Chirag Jain
- * Copyright (c) 2018 Metacube.com. All rights reserved.
- * 
  */
 public class ShoppingCart {
 	
@@ -18,15 +17,25 @@ public class ShoppingCart {
 	 * @param quantity is product quantity.
 	 * @param price is product price.
 	 */
-	void addItem(int pId,String pName,int quantity,int price) {
-		cart.add(new Product(pId, pName, quantity, price));
+	public void addItem(int pId,String pName,int quantity,int price) {
+		boolean present = false;
+		for(Product p : cart) {
+			if(pId == p.pId) {
+				p.quantity += quantity;
+				present = true;
+				System.out.println("Adding to already present quantity");
+			}
+		}
+		if(!present) {
+			cart.add(new Product(pId, pName, quantity, price));
+		}		
 		System.out.println("Item Added");
 	}
 	
 	/**
 	 * This function displays products in cart.
 	 */
-	void display() {
+	public void display() {
 		for(Product p : cart) {
 			System.out.println(p.pId + "\t" + p.pName + "\t" + p.quantity + "\t" + p.price );
 		}
@@ -36,7 +45,7 @@ public class ShoppingCart {
 	 * This function is used to calculate total bill.
 	 * @return total amount to be paid for shopping.
 	 */
-	int bill() {
+	public int bill() {
 		int total = 0;
 		for(Product p : cart) {
 			total += p.quantity * p.price;
@@ -48,7 +57,7 @@ public class ShoppingCart {
 	 * This function removes product from cart.
 	 * @param prodId is product ID.
 	 */
-	void removeProduct(int prodId)
+	public void removeProduct(int prodId)
 	{
 		for(Product p : cart) {
 			if(p.pId == prodId) {
@@ -63,7 +72,7 @@ public class ShoppingCart {
 	 * @param prodId is Product ID.
 	 * @param quan is quantity to be added.
 	 */
-	void addQuantity(int prodId, int quan)
+	public void addQuantity(int prodId, int quan)
 	{
 		for(Product p : cart) {
 			if(p.pId == prodId) {
@@ -77,29 +86,15 @@ public class ShoppingCart {
 	 * @param prodId is Product ID.
 	 * @param quan is quantity to be subtracted.
 	 */
-	void subtractQuantity(int prodId, int quan)
+	public void subtractQuantity(int prodId, int quan)
 	{
 		for(Product p : cart) {
-			if(p.pId == prodId) {
+			if(p.pId == prodId && (p.quantity - quan) > 0) {
 				p.quantity -= quan;
+			} else {
+				System.out.println("Enter quantity less than available in cart");
 			}
 		}
 	}
 	
-	public static void main(String[] args)
-	{
-		ShoppingCart sc = new ShoppingCart();
-		sc.addItem(1, "cookie", 2, 10);
-		sc.addItem(2, "hanky", 3, 15);
-		sc.display();
-		System.out.println("Total bill is " + sc.bill());
-		
-		sc.removeProduct(2);
-		sc.display();
-		
-		sc.addQuantity(1, 5);
-		sc.display();
-		sc.subtractQuantity(1, 3);
-		sc.display();
-	}
 }
