@@ -14,7 +14,7 @@ public class NQueenProblem {
 	 * @param col is current column
 	 * @return yes if the position is safe for queen to put
 	 */
-	boolean isSafe(int[][] board, int row, int col) {
+	public boolean isSafe(int[][] board, int row, int col) {
 
 		int i, j;
 
@@ -47,7 +47,7 @@ public class NQueenProblem {
 	 * @param row is current row
 	 * @return true is solution is possible
 	 */
-	boolean solveNQUtil(int board[][], int row)
+	public boolean solveNQUtil(int board[][], int row)
     {
         if (row >= board[0].length)
             return true;
@@ -73,7 +73,7 @@ public class NQueenProblem {
 	 * @param size is size of chess board
 	 * @return true if a solution exists
 	 */
-	boolean solveNQ(int size)
+	public boolean solveNQ(int size)
     {
 		if(size <= 0) {
 			throw new AssertionError("Size must be greater than 0.");

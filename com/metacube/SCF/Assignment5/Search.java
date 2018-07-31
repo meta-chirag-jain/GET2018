@@ -14,7 +14,7 @@ public class Search {
 	 * @param x is element to search.
 	 * @return index of x or -1 if not found.
 	 */
-	int linearSearch(int[] inputArray, int index, int x) {
+	public int linearSearch(int[] inputArray, int index, int x) {
 
 		if (inputArray.length == 0 || inputArray.length == index) {
 			return -1;
@@ -33,7 +33,7 @@ public class Search {
 	 * @param x is element to search.
 	 * @return index of x or -1 if not found.
 	 */
-	int binarySearch(int[] inputArray, int firstIndex, int lastIndex, int x) {
+	public int binarySearch(int[] inputArray, int firstIndex, int lastIndex, int x) {
 		if (firstIndex >= lastIndex || inputArray.length == 0) {
 			return -1;
 		}
