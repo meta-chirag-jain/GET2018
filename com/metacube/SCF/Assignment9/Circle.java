@@ -15,6 +15,7 @@ public class Circle implements Shape
         this.radius = radius;
         this.date = date;
         this.originPoint = originPoint;
+        System.out.println("circle created at " + date.toString());
     }
     
     public double getArea() {
