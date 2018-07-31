@@ -14,7 +14,7 @@ public class Area {
 	 * @return area of triangle
 	 * @throws ArithmeticException
 	 */
-	double triangleArea(double width, double height) throws ArithmeticException {
+	public double triangleArea(double width, double height) throws ArithmeticException {
 		if(width <= 0 || height <= 0) {
 			throw new AssertionError("Size Invalid.");
 		}
@@ -28,7 +28,7 @@ public class Area {
 	 * @return area of rectangle
 	 * @throws ArithmeticException
 	 */
-	double rectangleArea(double width, double height) throws ArithmeticException {
+	public double rectangleArea(double width, double height) throws ArithmeticException {
 		if(width <= 0 || height <= 0) {
 			throw new AssertionError("Size Invalid.");
 		}
@@ -41,7 +41,7 @@ public class Area {
 	 * @return area of square
 	 * @throws ArithmeticException
 	 */
-	double squareArea(double width) throws ArithmeticException {
+	public double squareArea(double width) throws ArithmeticException {
 		if(width <= 0) {
 			throw new AssertionError("Size Invalid.");
 		}
@@ -54,7 +54,7 @@ public class Area {
 	 * @return area of circle
 	 * @throws ArithmeticException
 	 */
-	double circleArea(double radius) throws ArithmeticException {
+	public double circleArea(double radius) throws ArithmeticException {
 		if(radius < 0) {														//circle with radius zero is dot.
 			throw new AssertionError("Size Invalid.");
 		}

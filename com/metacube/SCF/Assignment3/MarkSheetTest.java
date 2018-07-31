@@ -14,6 +14,7 @@ public class MarkSheetTest {
 
 	MarkSheet marksheet = new MarkSheet();
     
+	//checkError function is called in every function
 	@Test(expected = AssertionError.class)
     public void testErrors() {
         

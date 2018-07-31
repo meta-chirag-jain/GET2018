@@ -11,7 +11,7 @@ public class StringOperations {
 	 * @param str is string passed by user
 	 * @return string after reversing it
 	 */
-	String toReverse(String str) {	
+	public String toReverse(String str) {	
 		if(str == null) {
 			throw new AssertionError("String is null.");
 		}
@@ -27,7 +27,7 @@ public class StringOperations {
 	 * @param str is string passed by user
 	 * @return last largest string
 	 */
-	String largest(String str) {
+	public String largest(String str) {
 		if(str == null) {
 			throw new AssertionError("String is null.");
 		}
@@ -62,7 +62,7 @@ public class StringOperations {
 	 * @param str is string passed by user
 	 * @return string by changing case
 	 */
-	String changeCase(String str) {
+	public String changeCase(String str) {
 		if(str == null) {
 			throw new AssertionError("String is null.");
 		}
@@ -93,7 +93,7 @@ public class StringOperations {
 	 * @param str2 is second string passed by user
 	 * @return 1 if equal strings else 0
 	 */
-	int compareEqual(String str1, String str2) {
+	public int compareEqual(String str1, String str2) {
 		if(str1 == null || str2 == null) {
 			throw new AssertionError("String is null.");
 		}
