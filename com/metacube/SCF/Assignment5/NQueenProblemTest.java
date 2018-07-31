@@ -5,9 +5,10 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
  * This class tests NQueenProblem Class
  * @author Chirag Jain
- * Copyright (c) 2018 Metacube.com. All rights reserved.
+ * 
  */
 public class NQueenProblemTest {
 

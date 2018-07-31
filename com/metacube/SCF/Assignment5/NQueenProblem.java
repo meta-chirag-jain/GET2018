@@ -1,9 +1,10 @@
 package GET2018.com.metacube.SCF.Assignment5;
 
 /**
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
  * This class solves n queen problem by backtracking.
  * @author Chirag Jain
- * Copyright (c) 2018 Metacube.com. All rights reserved.
+ * 
  */
 public class NQueenProblem {
 
