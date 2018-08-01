@@ -7,6 +7,7 @@ public class Rectangle implements Shape
     double length, width;
     Date date;
     Point originPoint;
+    Point maxRectanglePoint;
     
     public Rectangle(double length, double width, Date date, Point originPoint)
     {
@@ -14,23 +15,49 @@ public class Rectangle implements Shape
         this.width = width;
         this.date = date;
         this.originPoint = originPoint;
+        this.maxRectanglePoint = getMaxRectanglePoint();
     }
     
+	@Override
     public double getArea() {
-        return length * width;
+        return Double.parseDouble(decimalFormat.format(length * width));
     }
     
+	@Override
     public double getPerimeter() {
-        return 2 * (length + width);
+        return Double.parseDouble(decimalFormat.format(2 * (length + width)));
     }
     
+	@Override
     public Date getTimeStamp() {
     	return date;
     }
     
+	@Override
     public Point getOrigin() {
         return originPoint;
     }
-    
-    public boolean isPointEnclosed();
+
+	@Override
+	public boolean isPointEnclosed(Point givenPoint) {
+		if(givenPoint.x > originPoint.x && givenPoint.x < maxRectanglePoint.x && givenPoint.y > originPoint.y && givenPoint.y < maxRectanglePoint.y) {
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public String getShapeType() {
+		return "RECTANGLE";
+	}
+	
+	private Point getMaxRectanglePoint() {
+		return new Point(originPoint.x + width, originPoint.y + length);
+	}
+
+	@Override
+	public double getOriginDistance() {
+		
+		return Math.sqrt((originPoint.x - 0) * (originPoint.x - 0) + (originPoint.y - 0) * (originPoint.y - 0));
+	}
 }

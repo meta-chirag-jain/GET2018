@@ -27,7 +27,7 @@ public class ShapeFactory
         	break;
         	
         case TRIANGLE:
-        	shapeObject = new Triangle(parameters.get(0), date, originPoint);
+        	shapeObject = new Triangle(parameters.get(0), parameters.get(1), parameters.get(2), parameters.get(3), date, originPoint);
         	break;
         	
         default:
