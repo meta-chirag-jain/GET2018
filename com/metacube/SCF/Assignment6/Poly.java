@@ -1,20 +1,27 @@
 package GET2018.com.metacube.SCF.Assignment6;
 
 /**
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
  * This class is designed to perform various polynomial functions.
  * @author Chirag Jain
- * Copyright (c) 2018 Metacube.com. All rights reserved.
+ * 
  */
 public final class Poly {
 	
 	private int[][] polynomial;
+	private final static int POWER = 1;
+	private final static int COEFFICIENT = 0;
 		
 	public Poly(int[][] givenPoly) {
 		if(givenPoly == null) {
 			throw new AssertionError("Set can't be null");
 		}
+
+		if(givenPoly.length == 0) {
+			throw new AssertionError("Set can't be zero.");
+		}
 		
-		int[][] temp = removeUnwanted(givenPoly);
+		int[][] temp = removeCopy(givenPoly);
 		int[][] polyEquation = removeZero(temp);
 		
 		if(polyEquation.length == 0) {
@@ -22,10 +29,7 @@ public final class Poly {
 		}
 		
 		this.polynomial = polyEquation;
-		
-		/*for(int i = 0; i < polynomial.length; i++) {
-			System.out.println(polynomial[i][0] + "  " + polynomial[i][1]);
-		}*/
+
 	}
 	
 	/**
@@ -36,15 +40,15 @@ public final class Poly {
 	private int[][] removeZero(int[][] givenArray) {
 		int length = 0;
 		
-		for(int i =0; i < givenArray.length && givenArray[i][0] != 0; i++) {
+		for(int i = 0; i < givenArray.length && givenArray[i][COEFFICIENT] != 0; i++) {
 			length++;
 		}
 		
 		int[][] finalPoly = new int[length][2];
 		
 		for(int i =0; i < length; i++) {
-			finalPoly[i][0] = givenArray[i][0];
-			finalPoly[i][1] = givenArray[i][1];
+			finalPoly[i][COEFFICIENT] = givenArray[i][COEFFICIENT];
+			finalPoly[i][POWER] = givenArray[i][POWER];
 		}
 		
 		return finalPoly;		
@@ -71,8 +75,8 @@ public final class Poly {
 	 */
 	private int getCoefficient(int power) {
 		for(int i = 0; i < polynomial.length; i++) {
-			if(polynomial[i][1] == power) {
-				return polynomial[i][0];
+			if(polynomial[i][POWER] == power) {
+				return polynomial[i][COEFFICIENT];
 			}
 		}
 		return 0;
@@ -81,11 +85,11 @@ public final class Poly {
 	/**
 	 * @return highest power of polynomial.
 	 */
-	int Degree() {
+	public int Degree() {
 		int maxPower = 0;
 		for(int i = 0; i < polynomial.length; i++) {
-			if(polynomial[i][1] > maxPower) {
-				maxPower = polynomial[i][1];
+			if(polynomial[i][POWER] > maxPower) {
+				maxPower = polynomial[i][POWER];
 			}
 		}
 		return maxPower;
@@ -96,10 +100,10 @@ public final class Poly {
 	 * @param x is value of variable.
 	 * @return evaluated value.
 	 */
-	double evaluate(float x) {
+	public double evaluate(float x) {
 		double polyValue = 0.00;
 		for(int i =0; i < polynomial.length; i++) {
-			polyValue += polynomial[i][0] * (Math.pow(x, polynomial[i][1]));
+			polyValue += polynomial[i][COEFFICIENT] * (Math.pow(x, polynomial[i][POWER]));
 		}
 		if(polyValue == Double.POSITIVE_INFINITY) {
 			throw new AssertionError("Value too large");
@@ -113,18 +117,21 @@ public final class Poly {
 	 * @param p2 is polynomial 2.
 	 * @return new polynomial after adding them.
 	 */
-	public static Poly addPoly(Poly p1, Poly p2) {									//NotWorking
+	public static Poly addPoly(Poly p1, Poly p2) {
 		
 		int[][] polySum = new int[p1.size() + p2.size()][2];
 		int sumIndex = 0;
 		
-		for(int i = 0; i < p1.Degree(); i++) {
+		int maxPower = Math.max(p1.Degree(), p2.Degree());
+		
+		for(int i = 0; i <= maxPower; i++) {
 			if(p1.getCoefficient(i) != 0 || p2.getCoefficient(i) != 0) {
-				polySum[sumIndex][0] = p1.getCoefficient(i) + p2.getCoefficient(i);	//coeff
-				polySum[sumIndex][1] = i;											//power
-				sumIndex++;															//index
+				polySum[sumIndex][COEFFICIENT] = p1.getCoefficient(i) + p2.getCoefficient(i);
+				polySum[sumIndex][POWER] = i;
+				sumIndex++;
 			}
-		}		
+		}
+
 		return new Poly(polySum);
 		
 	}
@@ -136,12 +143,13 @@ public final class Poly {
 	 * @return index of row where power is found else -1.
 	 */
 	private static int returnIndex(int[][] givenArray, int power) {
+		int index = -1;
 		for(int i = 0; i < givenArray.length; i++) {
-			if(givenArray[i][1] == power) {
-				return i;
+			if(givenArray[i][POWER] == power) {
+				index = i;
 			}
 		}
-		return -1;
+		return index;
 	}
 	
 	/**
@@ -163,15 +171,15 @@ public final class Poly {
 			for(int j = 0; j < p2.size(); j++) {
 				
 				power = p1.getPoly()[i][1] + p2.getPoly()[j][1];
-				coefficient = p1.getPoly()[i][0] * p2.getPoly()[j][0];
+				coefficient = p1.getPoly()[i][COEFFICIENT] * p2.getPoly()[j][COEFFICIENT];
 				
 				index = returnIndex(mulPoly, power);
 				
 				if(index != -1) {
-					mulPoly[index][0] += coefficient;
+					mulPoly[index][COEFFICIENT] += coefficient;
 				} else {
-					mulPoly[mulIndex][0] = coefficient;
-					mulPoly[mulIndex][1] = power;
+					mulPoly[mulIndex][COEFFICIENT] = coefficient;
+					mulPoly[mulIndex][POWER] = power;
 					mulIndex++;
 				}
 			}
@@ -181,11 +189,11 @@ public final class Poly {
 	}
 	
 	/**
-	 * This function removes elements with same power by adding them and trailing zeros.
+	 * This function removes elements with same power by adding them and zero coefficient terms.
 	 * @param givenArray is passed array
-	 * @return array after removing elements with same power by adding them and trailing zeros.
+	 * @return array after removing elements with same power by adding them.
 	 */
-	private int[][] removeUnwanted(int[][] givenArray)
+	private int[][] removeCopy(int[][] givenArray)
 	{
 		int n = givenArray.length;
 
@@ -198,15 +206,24 @@ public final class Poly {
 
 	    int length = 0;
 	    for (int i = 0; i < n; i++) {
-			index = returnIndex(temp, givenArray[i][1]);
-	    	if (index == -1 && givenArray[i][0] != 0) {
-	        	temp[length][0] = givenArray[i][0];
-				temp[length][1] = givenArray[i][1];
+	    	//temp array initializes itself with all values as zero, returnIndex function will give wrong value with constants as their power is also zero.
+	    	if(givenArray[i][POWER] == 0) {
+	    		index = -1;
+	    	} else {
+	    		index = returnIndex(temp, givenArray[i][POWER]);
+	    	}
+
+	    	if (index == -1 && givenArray[i][COEFFICIENT] != 0) {
+	        	temp[length][COEFFICIENT] = givenArray[i][COEFFICIENT];
+				temp[length][POWER] = givenArray[i][POWER];
 				length++;
-	        } else if(index != -1 && givenArray[i][0] != 0){
-				temp[index][0] += givenArray[i][0];
+	        }
+	    	//if already present then add coefficients
+	    	else if(index != -1 && givenArray[i][COEFFICIENT] != 0 ){
+				temp[index][COEFFICIENT] += givenArray[i][COEFFICIENT];
 			}
 	    }
+	    
 	    return temp;
 	}
 
