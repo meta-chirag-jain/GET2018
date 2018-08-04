@@ -112,7 +112,7 @@ public final class IntSet {
 	 */
 	public static IntSet union(IntSet s1, IntSet s2) {
 		
-		List<Integer> unionSet = s1.getSet();	
+		List<Integer> unionSet = new ArrayList<Integer>();	
 		
 		for(int i = 0; i < s1.size(); i++) {
 			unionSet.add(s1.getSet().get(i));

@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Copyright (c) 2018 Metacube.com. All rights reserved.
@@ -133,12 +134,14 @@ public class IntSetTest {
     /**
      * Test case for union
      */
-    /*@org.junit.Test
+    @org.junit.Test
     public void unionTest() {
         IntSet set1 = new IntSet(new ArrayList<Integer>(Arrays.asList(4, 1, 9, 2000, 5)));
-        IntSet set2 = new IntSet(new ArrayList<Integer>(Arrays.asList(4, 1, 9, 2000, 5)));
+        IntSet set2 = new IntSet(new ArrayList<Integer>(Arrays.asList(4, 1, 9, 31, 20, 5)));
         
         IntSet union = IntSet.union(set1, set2);
-        assertArrayEquals(new ArrayList<Integer>(Arrays.asList(1, 4, 5, 8, 9)), union.getSet());
-    }*/
+        List<Integer> actual = union.getSet();
+        List<Integer> expected = new ArrayList<Integer>(Arrays.asList(1, 4, 5, 9, 20, 31));
+        assertEquals(expected, actual);
+    }
 }
