@@ -13,19 +13,28 @@ import org.junit.Test;
 public class SparseMatrixTest {
 
 	/**
-     * Test for invalid input
+     * Test for null input
      */
     @Test(expected = AssertionError.class)
-    public void sparseMatrixTest() {
+    public void sparseMatrixNullTest() {
         new SparseMatrix(null);
               
     }
     
     /**
-     * Positive Test case for transpose of the matrix
+     * Test for empty input
+     */
+    @Test(expected = AssertionError.class)
+    public void sparseMatrixEmptyTest() {
+        new SparseMatrix(new int[][] {});
+              
+    }
+    
+    /**
+     * Test case for transpose of the matrix
      */
     @Test
-    public void transposeTest1() {
+    public void transposeTest() {
         SparseMatrix matrix = new SparseMatrix(new int[][]{{0, 0, 0, 4}, {5, 0 ,0 ,0}, {0, 0, 0, 0}});
         int[][] transpose = matrix.transpose();
         
@@ -74,7 +83,7 @@ public class SparseMatrixTest {
     
     
     /**
-     * Test case for addMatrices when matrices dont have same dimensions
+     * Test case for addMatrices when matrices don't have same dimensions
      */
     @Test(expected = AssertionError.class)
     public void addMatricesTest2() {

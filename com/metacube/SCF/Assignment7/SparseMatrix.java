@@ -24,6 +24,10 @@ public final class SparseMatrix {
 			throw new AssertionError("Cant be null.");
 		}
 		
+		if(givenArray.length == 0) {
+		    throw new AssertionError("Cant be empty.");
+		}
+		
 		//to count length of non zero numbers
 		for(int row = 0; row < givenArray.length; row++) {
 			for(int col = 0; col < givenArray[row].length; col++) {
