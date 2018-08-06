@@ -22,7 +22,6 @@ public class EvaluatePostfix {
 		
 		StackLinkList<Double> operandStack = new StackLinkList<Double>();
 		
-		
 		String postfixTrimmed = postfix.trim().replaceAll(" +", " ");
 		
 		String[] tokens = postfixTrimmed.split(" ");

@@ -13,7 +13,7 @@ public interface Queue<E> {
 	 * Adds element at end of queue
 	 * @param elementToEnqueue is given value
 	 */
-	public void enqueueElement(E elementToEnqueue);
+	public boolean enqueueElement(E elementToEnqueue);
 
 	/**
 	 * remove front element from queue

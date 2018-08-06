@@ -23,19 +23,27 @@ public class QueueCircularArray<E> implements Queue<E> {
 	}
 
 	@Override
-	public void enqueueElement(E elementToEnqueue) {
-		if(front == -1 && rear == -1) {
-			front = 0;
-			rear = 0;
-			circularArray[rear] = elementToEnqueue;
+	public boolean enqueueElement(E elementToEnqueue) {
+		try {
+			if(!isFull()) {
+				if(front == -1 && rear == -1) {
+					front = 0;
+					rear = 0;
+					circularArray[rear] = elementToEnqueue;
+				} else {
+					rear = (rear + 1) % MAX;
+					circularArray[rear] = elementToEnqueue;
+				}
+			} else {
+				throw new IndexOutOfBoundsException("Queue is full.");
+			}
+			return true;
 		}
-		else if(isFull()) {
-			throw new IndexOutOfBoundsException("Overflow Exception");
-		}
-		else {
-			rear = (rear + 1) % MAX;
-			circularArray[rear] = elementToEnqueue;
-		}
+			
+		catch(IndexOutOfBoundsException error)
+        {
+            return false;
+        } 
 		
 	}
 
