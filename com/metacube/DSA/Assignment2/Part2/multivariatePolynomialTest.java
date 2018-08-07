@@ -7,10 +7,10 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import GET2018.com.metacube.DSA.Assignment2.Part2.multivariatePolynomial.Term;
-import GET2018.com.metacube.DSA.Assignment2.Part2.multivariatePolynomial.VariableList;
+import GET2018.com.metacube.DSA.Assignment2.Part2.MultivariatePolynomial.Term;
+import GET2018.com.metacube.DSA.Assignment2.Part2.MultivariatePolynomial.VariableList;
 
-public class multivariatePolynomialTest {
+public class MultivariatePolynomialTest {
 
 	VariableList variable1 = new VariableList('x', 2);
 	VariableList variable2 = new VariableList('y', 0);
@@ -29,7 +29,7 @@ public class multivariatePolynomialTest {
 	
 	@Test
 	public void Visualisationtest() {
-		multivariatePolynomial poly = new multivariatePolynomial(termList);
+		MultivariatePolynomial poly = new MultivariatePolynomial(termList);
 		String polynomial = poly.visualisedMultivariatePolynomial();
 		assertEquals("4.0 * x^2 * y^0 + 3.0 * x^2 * y^0 * z^1", polynomial);
 	}

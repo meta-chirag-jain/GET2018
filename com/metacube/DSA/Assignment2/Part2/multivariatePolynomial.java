@@ -2,11 +2,11 @@ package GET2018.com.metacube.DSA.Assignment2.Part2;
 
 import java.util.List;
 
-public class multivariatePolynomial {
+public class MultivariatePolynomial {
 
 	private List<Term> multivariate;
 	
-	public multivariatePolynomial(List<Term> multivariate) {
+	public MultivariatePolynomial(List<Term> multivariate) {
 		this.multivariate = multivariate;
 	}
 	

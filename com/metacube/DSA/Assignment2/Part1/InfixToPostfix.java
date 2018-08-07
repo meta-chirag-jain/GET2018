@@ -8,6 +8,11 @@ package GET2018.com.metacube.DSA.Assignment2.Part1;
  */
 public class InfixToPostfix {
 
+	/**
+	 * 
+	 * @param infix is infix expression
+	 * @return Postfix expression of the given infix expression
+	 */
 	public static String infixToPostfix(String infix) {
 		
 		if(infix == null) {

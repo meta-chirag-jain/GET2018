@@ -8,15 +8,19 @@ import java.util.NoSuchElementException;
  * This class evaluates postfix expressions.
  * @author Chirag Jain
  *
- * @param <E> is generic type.
  */
 public class EvaluatePostfix {
 
+	/**
+	 * 
+	 * @param postfix is postfix expression.
+	 * @return final value after evaluation.
+	 */
 	public static double evaluate(String postfix) {
 		
 		DecimalFormat decimalFormat = new DecimalFormat(".##");
 		
-		if(postfix == null || postfix == " "){
+		if(postfix == null || postfix == ""){
 			throw new AssertionError("Null Entry");
 		}
 		
@@ -32,6 +36,7 @@ public class EvaluatePostfix {
 			
 			try{
 				operand = Double.parseDouble(tokens[i]);
+				//stack is implemented using Linked List so it will never be full.
 				operandStack.pushElement(operand);
 			}
 			catch(NumberFormatException numberFormatException) {
@@ -60,6 +65,13 @@ public class EvaluatePostfix {
 		return Double.parseDouble(decimalFormat.format(result));
 	}
 	
+	/**
+	 * 
+	 * @param operator
+	 * @param operand1
+	 * @param operand2
+	 * @return value after evaluation
+	 */
 	private static double evaluate(String operator, double operand1, double operand2) {
 		
 		double result = 0;
@@ -75,11 +87,11 @@ public class EvaluatePostfix {
             	break;
              
             case "/":
-            	result = operand2 * operand1;
+            	result = operand2 / operand1;
             	break;
              
             case "*":
-            	result = operand2 / operand1;
+            	result = operand2 * operand1;
             	break;
             	
             default:

@@ -24,7 +24,8 @@ public class StackLinkList<E>
         this.top = -1;
     }
 
-    public void pushElement(E elementToPush)
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public void pushElement(E elementToPush)
     {
         /*if (top == MAX - 1) {
             throw new IndexOutOfBoundsException("Overflow Exception");

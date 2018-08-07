@@ -15,6 +15,7 @@ public class QueueCircularArray<E> implements Queue<E> {
 	private int front, rear;
 	private final int MAX;
 	
+	@SuppressWarnings("unchecked")
 	public QueueCircularArray(int MAX) {
 		circularArray = (E[])new Object[MAX];
 		this.MAX = MAX;
