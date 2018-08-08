@@ -5,9 +5,22 @@ import java.util.Date;
 
 import GET2018.com.metacube.SCF.Assignment9.Shape.ShapeType;
 
+/**
+* Copyright (c) 2018 Metacube.com. All rights reserved.
+* This class creates object for various shape class.
+* @author Chirag Jain
+* 
+*/
 public class ShapeFactory
 {
 
+    /**
+     * creates shape of given type with given values
+     * @param shape
+     * @param originPoint
+     * @param parameters
+     * @return object of shape type
+     */
     public static Shape createShape(ShapeType shape, Point originPoint, ArrayList<Double> parameters) {
         
     	Date date = new Date();
@@ -30,6 +43,10 @@ public class ShapeFactory
         	shapeObject = new Triangle(parameters.get(0), parameters.get(1), parameters.get(2), parameters.get(3), date, originPoint);
         	break;
         	
+        case POLYGON:
+            shapeObject = new RegularPolygon(parameters.get(0), parameters.get(1), date, originPoint);
+            break;
+            
         default:
             System.out.println("Wrong shape passed");
             break;

@@ -2,6 +2,12 @@ package GET2018.com.metacube.SCF.Assignment9;
 
 import java.util.Date;
 
+/**
+* Copyright (c) 2018 Metacube.com. All rights reserved.
+* This class defines function of triangle.
+* @author Chirag Jain
+* 
+*/
 public class Triangle implements Shape
 {
     double side1;
@@ -23,7 +29,7 @@ public class Triangle implements Shape
     
 	@Override
     public double getArea() {
-        return Double.parseDouble(decimalFormat.format( (side2 * height) / 2)); //heron's required
+        return Double.parseDouble(decimalFormat.format( (side1 * height) / 2));
     }
     
 	@Override
@@ -43,8 +49,17 @@ public class Triangle implements Shape
 
 	@Override
 	public boolean isPointEnclosed(Point givenPoint) {
-		// TODO Auto-generated method stub
-		return false;
+
+	    boolean enclosed = false;
+        double base = Math.sqrt(Math.pow(side3, 2) - Math.pow(height, 2));
+        Point b = new Point(originPoint.x + side1, originPoint.y);
+        Point c = new Point(originPoint.x + base, originPoint.y + height);
+                
+        if(Math.abs(getArea() - ((getAreaByVertices(givenPoint, originPoint, b)) + getAreaByVertices(givenPoint, b, c) + getAreaByVertices(givenPoint, originPoint, c))) <= 0.001)
+            enclosed = true;        
+        
+        return enclosed;
+        
 	}
 
 	@Override
@@ -56,4 +71,16 @@ public class Triangle implements Shape
 	public double getOriginDistance() {		
 		return Math.sqrt((originPoint.x - 0) * (originPoint.x - 0) + (originPoint.y - 0) * (originPoint.y - 0));
 	}
+	
+	/**
+	 * 
+	 * @param a is points of vertex A.
+	 * @param b is points of vertex B.
+	 * @param c is points of vertex C.
+	 * @return area of triangle ABC with given points a, b, c.
+	 */
+	public double getAreaByVertices(Point a, Point b, Point c)
+    {
+        return Math.abs((a.x * (b.y - c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y)) / 2.0);
+    } 
 }

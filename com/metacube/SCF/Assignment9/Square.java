@@ -2,6 +2,12 @@ package GET2018.com.metacube.SCF.Assignment9;
 
 import java.util.Date;
 
+/**
+* Copyright (c) 2018 Metacube.com. All rights reserved.
+* This class defines function of square.
+* @author Chirag Jain
+* 
+*/
 public class Square implements Shape
 {
     double width;
@@ -49,14 +55,19 @@ public class Square implements Shape
 	public String getShapeType() {
 		return "SQUARE";
 	}
-	
-	private Point getMaxSquarePoint() {
-		return new Point(originPoint.x + width, originPoint.y + width);
-	}
 
 	@Override
 	public double getOriginDistance() {
 		
 		return Math.sqrt((originPoint.x - 0) * (originPoint.x - 0) + (originPoint.y - 0) * (originPoint.y - 0));
 	}
+	
+	/**
+     * 
+     * @return diagonally opposite points of square.
+     */
+    private Point getMaxSquarePoint() {
+        return new Point(originPoint.x + width, originPoint.y + width);
+    }
+    
 }

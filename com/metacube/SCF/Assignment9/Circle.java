@@ -2,10 +2,15 @@ package GET2018.com.metacube.SCF.Assignment9;
 
 import java.util.Date;
 
+/**
+* Copyright (c) 2018 Metacube.com. All rights reserved.
+* This class defines function of circle.
+* @author Chirag Jain
+* 
+*/
 public class Circle implements Shape
 {
-    final double PI = 3.14;
-    
+   
     double radius;
     Date date;
     Point originPoint;
@@ -22,12 +27,12 @@ public class Circle implements Shape
     
     @Override
     public double getArea() {
-        return Double.parseDouble(decimalFormat.format(PI * radius* radius));
+        return Double.parseDouble(decimalFormat.format(Math.PI * radius* radius));
     }
     
     @Override
     public double getPerimeter() {
-        return Double.parseDouble(decimalFormat.format(2 * PI * radius));
+        return Double.parseDouble(decimalFormat.format(2 * Math.PI * radius));
     }
     
     @Override
@@ -55,11 +60,27 @@ public class Circle implements Shape
     	return "CIRCLE";
     }
     
+    @Override
+    public double getOriginDistance() {
+        
+        return Math.sqrt((originPoint.x - 0) * (originPoint.x - 0) + (originPoint.y - 0) * (originPoint.y - 0));
+    }
+    
+    /**
+     * 
+     * @param center
+     * @param givenPoint
+     * @return distance between center and given point
+     */
     private double getDistance(Point center, Point givenPoint) {
     	//distance = square root of ((x2-x1)^2 + (y2-y1)^2)
     	return Math.sqrt((center.x - givenPoint.x) * (center.x - givenPoint.x) + (center.y - givenPoint.y) * (center.y - givenPoint.y));
     }
     
+    /**
+     * 
+     * @return coordinates of center
+     */
     private Point getCenterCoordinates() {
     	double xAxis, yAxis;
     	double theta = Math.atan(originPoint.y / originPoint.x);			//tan inverse of slope
@@ -69,11 +90,5 @@ public class Circle implements Shape
     	
     	return new Point(originPoint.x + xAxis, originPoint.y + yAxis);   	
     }
-
-	@Override
-	public double getOriginDistance() {
-		
-		return Math.sqrt((originPoint.x - 0) * (originPoint.x - 0) + (originPoint.y - 0) * (originPoint.y - 0));
-	}
 
 }

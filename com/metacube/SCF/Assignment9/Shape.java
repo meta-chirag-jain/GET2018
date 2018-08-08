@@ -3,6 +3,12 @@ package GET2018.com.metacube.SCF.Assignment9;
 import java.text.DecimalFormat;
 import java.util.Date;
 
+/**
+* Copyright (c) 2018 Metacube.com. All rights reserved.
+* This interface declares function of various shape.
+* @author Chirag Jain
+* 
+*/
 public interface Shape
 {
 	DecimalFormat decimalFormat = new DecimalFormat(".###");
@@ -21,5 +27,5 @@ public interface Shape
     
     double getOriginDistance();
     
-    enum ShapeType { SQUARE, RECTANGLE, CIRCLE, TRIANGLE }
+    static enum ShapeType { SQUARE, RECTANGLE, CIRCLE, TRIANGLE, POLYGON }
 }

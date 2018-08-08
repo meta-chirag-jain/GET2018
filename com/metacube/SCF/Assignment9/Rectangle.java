@@ -2,6 +2,12 @@ package GET2018.com.metacube.SCF.Assignment9;
 
 import java.util.Date;
 
+/**
+* Copyright (c) 2018 Metacube.com. All rights reserved.
+* This class defines function of rectangle.
+* @author Chirag Jain
+* 
+*/
 public class Rectangle implements Shape
 {
     double length, width;
@@ -50,14 +56,19 @@ public class Rectangle implements Shape
 	public String getShapeType() {
 		return "RECTANGLE";
 	}
-	
-	private Point getMaxRectanglePoint() {
-		return new Point(originPoint.x + width, originPoint.y + length);
-	}
 
 	@Override
 	public double getOriginDistance() {
 		
 		return Math.sqrt((originPoint.x - 0) * (originPoint.x - 0) + (originPoint.y - 0) * (originPoint.y - 0));
 	}
+	
+	/**
+	 * 
+	 * @return diagonally opposite points of rectangle.
+	 */
+	private Point getMaxRectanglePoint() {
+        return new Point(originPoint.x + width, originPoint.y + length);
+    }
+	
 }
