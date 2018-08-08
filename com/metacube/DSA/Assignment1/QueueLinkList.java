@@ -22,14 +22,17 @@ public class QueueLinkList<E> implements Queue<E> {
         this.MAX = MAX;
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	public void enqueueElement(E elementToEnqueue) {
+	public boolean enqueueElement(E elementToEnqueue) {
  
-		if (isFull()) {
-        	throw new IndexOutOfBoundsException("Overflow Exception");
-        }        
-		queueList.addToLast(new LinkedListNode(elementToEnqueue));		
-		queueLength++;		
+		boolean flag = false;
+		if (!isFull()) {       
+			queueList.addToLast(new LinkedListNode(elementToEnqueue));		
+			queueLength++;
+			flag = true;
+		}
+		return flag;
 	}
 
 	@Override

@@ -16,25 +16,29 @@ public class StackArray<E> implements Stack<E>
     private E[] stackArray;
     private int top;
     
-    public StackArray(int MAX)
+    @SuppressWarnings("unchecked")
+	public StackArray(int MAX)
     {
-        //@SuppressWarnings("unchecked")
         this.stackArray = (E[])new Object[MAX];
         this.top = -1;
     }
     
     @Override
-    public void pushElement(E elementToPush)
+    public boolean pushElement(E elementToPush)
     {
+    	boolean flag = true;
         if (top == stackArray.length - 1) {
-            throw new IndexOutOfBoundsException("Overflow Exception");
+            flag = false;
         }
         
         if(elementToPush == "" || elementToPush == null) {
-            throw new NullPointerException("Null value inserted");
+        	flag = false;
         }
         
-        stackArray[++top] = elementToPush;        
+        if(flag) {
+        	stackArray[++top] = elementToPush;        
+        }
+        return flag;
     }
 
     @Override

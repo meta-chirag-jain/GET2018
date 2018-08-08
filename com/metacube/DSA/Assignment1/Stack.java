@@ -13,7 +13,7 @@ public interface Stack<E>
 	 * Push element to stack
 	 * @param elementToPush is generic type
 	 */
-    public void pushElement(E elementToPush);
+    public boolean pushElement(E elementToPush);
 
     /**
      * Pop element form stack 

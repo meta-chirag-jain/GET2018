@@ -1,5 +1,12 @@
 package GET2018.com.metacube.DSA.Assignment1;
 
+/**
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
+ * This class defines generic Linked List functions.
+ * @author Chirag Jain
+ *
+ * @param <E> is generic type.
+ */
 public class LinkList<E>
 {
 

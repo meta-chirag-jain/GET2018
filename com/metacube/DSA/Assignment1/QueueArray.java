@@ -16,9 +16,9 @@ public class QueueArray<E> implements Queue<E> {
     private int front, rear, queueLength;
     private final int MAX;
     
-    public QueueArray(int MAX)
+    @SuppressWarnings("unchecked")
+	public QueueArray(int MAX)
     {
-        //@SuppressWarnings("unchecked")
         this.queueArray = (E[])new Object[MAX];
         this.queueLength = 0;
         this.MAX = MAX;
@@ -27,18 +27,22 @@ public class QueueArray<E> implements Queue<E> {
     }
     
 	@Override
-	public void enqueueElement(E elementToEnqueue) {
+	public boolean enqueueElement(E elementToEnqueue) {
 
+		boolean flag = false;
 		if (rear == -1) {
             front = 0;
             rear = 0;
             queueArray[rear] = elementToEnqueue;
-        } else if (rear + 1 >= MAX) {
-        	throw new IndexOutOfBoundsException("Overflow Exception");
+            flag = true;
         } else if ( rear + 1 < MAX) {
         	queueArray[++rear] = elementToEnqueue;    
+        	flag = true;
         }
-		queueLength++;	
+		if(flag) {
+			queueLength++;
+		}		
+		return flag;
 	}
 
 	@Override

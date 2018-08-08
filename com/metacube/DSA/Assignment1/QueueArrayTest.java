@@ -2,65 +2,92 @@ package GET2018.com.metacube.DSA.Assignment1;
 
 import static org.junit.Assert.*;
 
+import java.util.NoSuchElementException;
+
 import org.junit.Test;
 
+/**
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
+ * This tests Queue Implementation by array.
+ * @author Chirag Jain
+ *
+ */
 public class QueueArrayTest {
 
 	QueueArray<Integer> intQueueArray = new QueueArray<Integer>(4); 
-    
-    QueueArray<Double> doubleQueueArray = new QueueArray<Double>(4); 
-    
-    QueueArray<Character> charQueueArray = new QueueArray<Character>(4); 
-    
-    QueueArray<String> stringQueueArray = new QueueArray<String>(4); 
-    
-	@Test
-	public void intQueueArraytest() {
 
+	@Test
+	public void enqueueTest() {
+		
+		assertTrue(intQueueArray.enqueueElement(101));
+		assertTrue(intQueueArray.enqueueElement(102));
+		assertTrue(intQueueArray.enqueueElement(103));
+		assertTrue(intQueueArray.enqueueElement(104));
+		assertFalse(intQueueArray.enqueueElement(105));
+		assertFalse(intQueueArray.enqueueElement(106));
+		
+	}
+	
+	@Test
+	public void dequeueTest() {
+		
 		try {
 			intQueueArray.dequeueElement();
-        }
-        catch(Exception e) {
-            System.out.println(e.getMessage());
-        }
-        
-        System.out.println("Empty " + intQueueArray.isEmpty());
-        
-        try {
-        	intQueueArray.peek();
-        }
-        catch(Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-        intQueueArray.enqueueElement(101);
-        
-        intQueueArray.enqueueElement(102);
-        
-        System.out.println("top " + intQueueArray.peek());
-        
-        intQueueArray.enqueueElement(103);
-
-        intQueueArray.enqueueElement(104);
-
-        try {
-        	intQueueArray.enqueueElement(105);
-        }
-        catch(Exception e) {
-            System.out.println(e.getMessage());
-        }
-        
-
-        System.out.println("pop " + intQueueArray.dequeueElement());
-        
-        System.out.println("Empty " + intQueueArray.isEmpty());
-
-        System.out.println("top " + intQueueArray.peek());
-        
-        System.out.println("pop " + intQueueArray.dequeueElement());
-        
-        System.out.println("Empty " + intQueueArray.isEmpty());
-        
+		}
+		catch(NoSuchElementException error) {
+			assertEquals("Underflow Exception", error.getMessage());
+		}
+		
+		assertTrue(intQueueArray.enqueueElement(101));
+		assertTrue(intQueueArray.enqueueElement(102));
+		assertTrue(intQueueArray.enqueueElement(103));
+		
+		assertEquals((Integer)101, intQueueArray.dequeueElement());
+		assertEquals((Integer)102, intQueueArray.dequeueElement());
+		
+	}
+	
+	@Test
+	public void peekTest() {
+		
+		try {
+			intQueueArray.peek();
+		}
+		catch(NoSuchElementException error) {
+			assertEquals("Underflow Exception", error.getMessage());
+		}
+		
+		assertTrue(intQueueArray.enqueueElement(101));
+		assertTrue(intQueueArray.enqueueElement(102));
+		assertTrue(intQueueArray.enqueueElement(103));
+		
+		assertEquals((Integer)101, intQueueArray.peek());		
+		assertEquals((Integer)101, intQueueArray.dequeueElement());
+		
+		assertEquals((Integer)102, intQueueArray.peek());
+		
 	}
 
+	@Test
+	public void isEmptyTest() {
+
+		assertTrue(intQueueArray.isEmpty());
+		
+		assertTrue(intQueueArray.enqueueElement(101));
+		
+		assertFalse(intQueueArray.isEmpty());
+	}
+	
+	@Test
+	public void isFullTest() {
+
+		assertFalse(intQueueArray.isFull());
+		
+		assertTrue(intQueueArray.enqueueElement(101));
+		assertTrue(intQueueArray.enqueueElement(102));
+		assertTrue(intQueueArray.enqueueElement(103));
+		assertTrue(intQueueArray.enqueueElement(104));
+		
+		assertTrue(intQueueArray.isFull());
+	}
 }

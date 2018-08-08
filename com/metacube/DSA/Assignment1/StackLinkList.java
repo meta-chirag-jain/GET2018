@@ -24,14 +24,19 @@ public class StackLinkList<E> implements Stack<E>
         this.top = -1;
     }
     
-    @Override
-    public void pushElement(E elementToPush)
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+    public boolean pushElement(E elementToPush)
     {
+    	boolean flag = true;
         if (top == MAX - 1) {
-            throw new IndexOutOfBoundsException("Overflow Exception");
+            flag = false;
         }
-        top++;
-        stackList.insertAtFront(new LinkedListNode(elementToPush));
+        if(flag) {
+        	top++;
+            stackList.insertAtFront(new LinkedListNode(elementToPush));
+        }
+        return flag;
     }
 
     @Override
@@ -39,13 +44,16 @@ public class StackLinkList<E> implements Stack<E>
     {
     	if (top < 0) {
             throw new NoSuchElementException("Underflow Exception");
-        }    	    	
+        }
         return stackList.removeFromFront();
     }
 
     @Override
     public E topElement()
     {
+    	if (top < 0) {
+            throw new NoSuchElementException("Underflow Exception");
+        }
         return stackList.showFront();
     }
 
