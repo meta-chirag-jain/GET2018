@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 /**
  * Copyright (c) 2018 Metacube.com. All rights reserved.
- * Implementation of Bowler Class where we describe about properties of bowler
+ * This class acts like cache memory.
  * @author Chirag Jain
  * 
  */
