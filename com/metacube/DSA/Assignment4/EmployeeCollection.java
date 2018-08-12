@@ -2,9 +2,9 @@ package GET2018.com.metacube.DSA.Assignment4;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Copyright (c) 2018 Metacube.com. All rights reserved.
@@ -15,7 +15,8 @@ import java.util.Set;
 public class EmployeeCollection {
 
 	private List<Employee> employee = new ArrayList<Employee>();
-	private Set<Integer> employeeId = new HashSet<Integer>();
+	
+	private Map<Integer, Employee> employeeMap = new TreeMap<Integer, Employee>();
 	
 	/**
 	 * This function add employees to collection.
@@ -26,12 +27,11 @@ public class EmployeeCollection {
 	 * @throws CustomException
 	 */
 	public boolean addEmployee(int empId, String name, String address) throws CustomException {
-		boolean flag;
-		if(employeeId.add(empId)) {
-			employee.add(new Employee(empId, name, address));
+		boolean flag = false;
+		if(!employeeMap.containsKey(empId)) {
+		    employee.add(new Employee(empId, name, address));
+			employeeMap.put(empId, new Employee(empId, name, address));
 			flag = true;
-		} else {
-			flag = false;
 		}
 		return flag;
 	}
@@ -47,7 +47,7 @@ public class EmployeeCollection {
 	/**
 	 * Sorts data by EmpId.
 	 */
-	public void sortEId() {
+	public void sortEId() {	    
 		Collections.sort(employee, EmployeeSorter.sortByEId);
 	}
 	

@@ -166,7 +166,7 @@ public class EmployeeCollectionTest {
 			employeeData.addEmployee(1, null, "ajmer");
 		}
 		catch(CustomException error) {
-			assertEquals("Employee address is wrong.", error.getMessage());
+			assertEquals("Employee name is wrong.", error.getMessage());
 		}
 	}
 	
