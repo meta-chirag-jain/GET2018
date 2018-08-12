@@ -1,8 +1,8 @@
 package GET2018.com.metacube.DSA.Assignment3;
 
 /**
- * Implementation of Bowler Class where
- * we describe about properties of bowler
+ * Copyright (c) 2018 Metacube.com. All rights reserved.
+ * Implementation of Bowler Class where we describe about properties of bowler
  * @author Chirag Jain
  * 
  */
@@ -10,9 +10,9 @@ public class Bowler {
 	int bowl;
 	String name;
 	
-	public Bowler(int bowl, String name) throws MatchException {
+	public Bowler(int bowl, String name) throws CustomException {
 		if(bowl == 0) {
-			throw new MatchException("Bowler not allowed with zero bowl");
+			throw new CustomException("Bowler not allowed with zero bowl");
 		}
 		
 		if(name == null) {
@@ -22,16 +22,28 @@ public class Bowler {
 		this.name = name;
 	}
 	
+	/**
+	 * this function sets number of balls of bowler
+	 * @param bowl
+	 */
 	public void setBowl(int bowl) {
 		if(bowl >= 0) {
 			this.bowl = bowl;
 		}
 	}
 	
+	/**
+	 * 
+	 * @return number of balls of bowler
+	 */
 	public int getBowl() {
 		return bowl;
 	}
 	
+	/**
+	 * 
+	 * @return name of bowler
+	 */
 	public String getBowler() {
 		return name;
 	}

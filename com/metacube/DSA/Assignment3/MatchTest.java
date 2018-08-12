@@ -14,12 +14,12 @@ import org.junit.Test;
  * @author Chirag Jain
  * 
  */
-public class TestMatch {
+public class MatchTest {
 
 	Match match = null;
 	
 	@Before
-	public void Initialize() throws MatchException {
+	public void Initialize() throws CustomException {
 		match = new Match();
 		match.addBowler(8, "rahul");
 		match.addBowler(3, "chirag");
@@ -27,7 +27,7 @@ public class TestMatch {
 	}
 	
 	@Test
-	public void test1() throws MatchException {
+	public void test1() throws CustomException {
 		
 		
 		match.totalBowl();
@@ -47,7 +47,7 @@ public class TestMatch {
 	}
 
 	@Test
-	public void test2() throws MatchException {
+	public void test2() throws CustomException {
 		match.addBowler(4, "bobby");
 		
 		match.totalBowl();
@@ -76,13 +76,13 @@ public class TestMatch {
 		try {
 			match.addBowler(0, "mohit");
 			assertEquals(true, false);
-		} catch (MatchException ex) {
+		} catch (CustomException ex) {
 			assertEquals("Bowler not allowed with zero bowl", ex.getMessage());
 		}
 	}
 	
 	@Test
-	public void bowlerWithNullNameException() throws MatchException {
+	public void bowlerWithNullNameException() throws CustomException {
 		try {
 			match.addBowler(1, null);
 			assertEquals(true, false);

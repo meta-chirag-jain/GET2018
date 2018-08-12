@@ -8,7 +8,7 @@ import org.junit.Test;
 
 /**
  * Copyright (c) 2018 Metacube.com. All rights reserved.
- * This class tests priority queue.
+ * This class tests priority queue class.
  * @author Chirag Jain
  * 
  */

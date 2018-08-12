@@ -16,17 +16,17 @@ public class Match {
 	private List<Bowler> bowlers = new ArrayList<Bowler>();
 
 	/**
-	 * To add bowler's
+	 * To add bowlers
 	 * @param bowl
 	 * @param name
 	 * @throws MatchException
 	 */
-	public void addBowler(int bowl, String name) throws MatchException {
+	public void addBowler(int bowl, String name) throws CustomException {
 		bowlers.add(new Bowler(bowl, name));
 	}
 
 	/**
-	 * To calculate total bowl bowler's need to perform
+	 * To calculate total bowl bowlers need to perform
 	 */
 	public void totalBowl() {
 		for (Bowler bowler : bowlers) {
@@ -36,10 +36,10 @@ public class Match {
 
 	/**
 	 * To make virat score as low as possible
-	 * @return Bowler's order such that virat score's minimum
+	 * @return Bowler's order such that virat scores minimum
 	 * @throws MatchException
 	 */
-	public List<Bowler> viratMinimumRun() throws MatchException {
+	public List<Bowler> viratMinimumRun() throws CustomException {
 		List<Bowler> bowlerOrder = new ArrayList<Bowler>();
 		while (totalBowl != 0) {
 
@@ -84,4 +84,5 @@ public class Match {
 		}
 		return index;
 	}
+	
 }
