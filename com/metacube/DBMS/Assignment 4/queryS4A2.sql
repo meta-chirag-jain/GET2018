@@ -21,7 +21,7 @@ If start date is greater than end date take first date of month as start date*/
 DELIMITER $$
 CREATE PROCEDURE sale_between(start_date DATE, end_date DATE)
 BEGIN
-  IF start_date > end_date THEN SET start_date = DATE_ADD(DATE_ADD(LAST_DAY(start_date), INTERVAL 1 DAY), INTERVAL - 1 MONTH);
+  IF start_date > end_date THEN SET start_date = DATE_ADD(DATE_ADD(LAST_DAY(end_date), INTERVAL 1 DAY), INTERVAL - 1 MONTH);
   END IF;
   SELECT o.order_id, oli.product_id, oli.status
   FROM orders o INNER JOIN order_line_item oli ON o.order_id = oli.order_id
