@@ -34,5 +34,3 @@ RETURN (order_month);
 END$$
 
 SELECT highest_order(2018);
-
-DROP FUNCTION highest_order;
