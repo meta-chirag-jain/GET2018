@@ -77,9 +77,3 @@ VALUES  (2, 1, 1, NULL, 2, NULL, NULL),
         (6, 2, 3, "shipped", 2, '2018-07-05 14:29:36', NULL),
         (5, 3, 7, "delivered", 2, '2018-07-08 14:29:36', '2018-07-20 17:29:36'),
         (9, 4, 7, "returned", 2, '2018-07-21 14:29:36', '2018-07-25 17:29:36');
-
-
-#later
-
-INSERT INTO product(name, description, available_stock, price)
-VALUES  ("Apple iPhone 8", "Latest by apple", 0, 70000.00);
