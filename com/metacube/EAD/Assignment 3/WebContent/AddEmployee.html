@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Employee Page</title>
+    </head>
+    
+    <body>
+        <form name="employeeAddForm" action="AddEmployeeServlet">
+	        <table>
+	            <tr>
+	                <td>First Name</td>
+	                <td><input type="text" name="firstName" required></td>
+	            </tr>
+	            <tr>
+	                <td>Last Name</td>
+	                <td><input type="text" name="lastName" required></td>
+	            </tr>
+	            <tr>
+	                <td>Email</td>
+	                <td><input type="text" name="email" required></td>
+	            </tr>
+	            <tr>
+	                <td>Age</td>
+	                <td><input type="number" name="age" min="1" max="99" required></td>
+	            </tr>
+	            <tr>
+	                <td colspan="2" align="right"><input type="submit" name="submitEmployee" value="Add"></td>
+	            </tr>
+	        </table>
+        </form>
+        
+        <p><a href= 'http://localhost:8080/EAD_Assignment_3/'>BACK</a></p>
+        
+    </body>
+</html>
