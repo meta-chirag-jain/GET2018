@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SignUp Page</title>
+        
+        <script  src="scripts/validate.js"></script>
+        
+        <link href="designing.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <table class="headTableStyle" border="1" style="width:100%">
+            <tr>
+                <td><img src="images/html5logo.png" style="width:50px"></td>
+                <td align = "right"><a href="Home.html">Home</a>
+                    <a href="#">About</a>
+                    <a href="SignUp.html">SignUp</a>
+                    <a href="Login.html">Login</a>
+                    <a href="#">ContactUs</a></td>
+            </tr>           
+        </table>
+        
+        <hr> <br><br><br><br>
+        
+        <form name="signUpForm" action="SignUpServlet" method="POST">
+            <table class="signUpFormStyle" border="0px" align="center" cellspacing="15px">
+            <caption><h1>Enter Details</h1></caption>
+                <tr>
+                    <td>First Name</td>             
+                    <td><input type="text" name="firstName" id="firstName" required onkeyup="validateFirstName()"></td>
+                </tr>
+                <tr>
+                    <td>LastName</td>               
+                    <td><input type="text" name="lastName" id="lastName" required onkeyup="validateLastName()"></td>
+                </tr>
+                <tr>
+                    <td>Date of Birth</td>              
+                    <td><input type="date" name="dob" id="dob" required onblur="validateDOB()"></td>
+                </tr>
+                <tr>
+                    <td>Contact Number</td>             
+                    <td><input type="number" name="number" id="number" required onkeyup="validateNumber()"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>              
+                    <td><input type="text" name="email" id="email" required onkeyup="validateEmail()"></td>
+                </tr>
+                <tr>
+                    <td>Password</td>               
+                    <td><input type="password" name="password" id="password" required onkeyup="validatePassword()"></td>
+                </tr>
+                <tr>
+                    <td> Confirm Password</td>              
+                    <td><input type="password" name="confirmPassword" id="confirmPassword" required onkeyup="validateConfirmPassword()"></td>
+                </tr>
+                <tr>
+                    <td>Company/Institution</td>                
+                    <td><select name="company">
+                            <option value="metacube">Metacube</option>
+                            <option value="tcs">TCS</option>
+                            <option value="wipro">Wipro</option>
+                            <option value="google">Google</option>
+                            <option value="cisco">Cisco</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td colspan="2"><input type="submit" value="Submit" onclick="return validateForm()">
+                </tr>
+            </table>
+        </form>
+        
+        <br><br><br><br> <hr>
+        
+        <footer>
+            <center>&copy: 2018 | All Rights Reserved | Metacube Training</center>
+        </footer>
+
+    </body>
+</html>
