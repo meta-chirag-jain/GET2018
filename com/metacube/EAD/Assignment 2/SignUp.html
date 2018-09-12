@@ -1,0 +1,79 @@
+<!doctype HTML>
+<html>
+	<head>
+		<title>SignUp page</title>
+		
+		<script  src="validate.js"></script>
+        
+        <link href="designing.css" rel="stylesheet">
+        
+	</head>
+	
+	<body>
+	
+		<table class="headTableStyle" width="100%" cellspacing="0px" cellpadding="5px">
+			<tr>
+				<td><img src="html5logo.png" style="width:50px"></td>
+				<td align = "right"><a href="Home.html">Home</a>
+									<a href="#">About</a>
+									<a href="#">Gallery</a>
+									<a href="SignUp.html">SignUp</a>
+									<a href="Login.html">Login</a>
+									<a href="ContactUs.html">Contact</a></td>
+			</tr>			
+		</table>
+		
+		<hr> <br><br><br><br>
+		
+		<form name="signUpForm" action="Login.html" method="GET">
+			<table class="signUpFormStyle" border="0px" align="center" cellspacing="15px">
+			<caption><h1>Enter Details</h1></caption>
+				<tr>
+					<td>First Name</td>				
+					<td><input type="text" id="firstName" required onkeyup="validateFirstName()"></td>
+				</tr>
+				<tr>
+					<td>LastName</td>				
+					<td><input type="text" id="lastName" required onkeyup="validateLastName()"></td>
+				</tr>
+				<tr>
+					<td>Email</td>				
+					<td><input type="text" id="email" required onkeyup="validateEmail()"></td>
+				</tr>
+				<tr>
+					<td>Password</td>				
+					<td><input type="password" id="password" required onkeyup="validatePassword()"></td>
+				</tr>
+				<tr>
+					<td> Confirm Password</td>				
+					<td><input type="password" id="confirmPassword" required onkeyup="validateConfirmPassword()"></td>
+				</tr>
+				<tr>
+					<td>Contact Number</td>				
+					<td><input type="text" id="contactNumber" required onkeyup="validateNumber()"></td>
+				</tr>
+				<tr>
+					<td>Company/Institution</td>				
+					<td><select name="Company">
+							<option value="metacube">Metacube</option>
+							<option value="tcs">TCS</option>
+							<option value="wipro">Wipro</option>
+							<option value="google">Google</option>
+							<option value="cisco">Cisco</option>
+						</select>
+					</td>
+				</tr>
+				<tr align="center">
+					<td colspan="2"><input type="submit" value="Submit" onclick="return validateForm()">
+				</tr>
+			</table>
+		</form>
+		
+		<br><br><br><br> <hr> 
+		
+		<footer>
+			<center>&copy: 2018 | All Rights Reserved | Metacube Training</center>
+		</footer>
+		
+	</body>
+</html>

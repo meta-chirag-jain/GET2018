@@ -1,0 +1,41 @@
+.signUpFormStyle {
+    border : 1px solid;
+    border-radius : 4px;
+    background: #FFFACD;
+    
+}
+
+.signUpFormStyle input {
+    border : 1px solid;
+    border-radius : 4px;
+    background: #E0FFFF;
+}
+
+.signUpFormStyle select {
+    border : 1px solid;
+    border-radius : 4px;
+    background: #E0FFFF;
+}
+
+body head {
+    background: #E6E6FA;
+}
+body footer {
+    background: #708090;
+}
+
+body hr {
+    border: 1px solid;
+}
+
+.headTableStyle td {
+    background: #708090;
+}
+
+.headTableStyle a, a:visited, a:active{
+    background: #F0F8FF;
+    border-radius: 4px;
+    color: black;
+    text-decoration: none;
+    padding: 10px
+}
