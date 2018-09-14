@@ -3,10 +3,6 @@ package com.metacube.training.model;
 import java.io.InputStream;
 import java.util.Date;
 
-/**
- * @author Prakalpa-Rathore
- *
- */
 public class Employee {
 
 	private String employeeCode, firstName, middleName, lastName, primaryContact, secondaryContact, email, skypeId, password;

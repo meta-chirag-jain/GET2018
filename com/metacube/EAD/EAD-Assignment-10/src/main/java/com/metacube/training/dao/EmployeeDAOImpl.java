@@ -10,15 +10,11 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.metacube.training.dto.PreSignupTO;
+import com.metacube.training.dto.PreSignupDTO;
 import com.metacube.training.mappers.EmployeeMapper;
 import com.metacube.training.model.Employee;
 import com.metacube.training.model.Skill;
 
-/**
- * @author Prakalpa-Rathore
- *
- */
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
 
@@ -70,13 +66,13 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	
 	
 	
-	public boolean preSignup(PreSignupTO preSignupTO) {
+	public boolean preSignup(PreSignupDTO preSignupDTO) {
 		
-		int result1 = jdbcTemplate.update(SQL_INSERT_EMPLOYEE, preSignupTO.getEmployeeCode(), preSignupTO.getFirstName(), preSignupTO.getMiddleName(), 
-				preSignupTO.getLastName(), preSignupTO.getEmail(), new Date(preSignupTO.getDob().getTime()), String.valueOf(preSignupTO.getGender()));
+		int result1 = jdbcTemplate.update(SQL_INSERT_EMPLOYEE, preSignupDTO.getEmployeeCode(), preSignupDTO.getFirstName(), preSignupDTO.getMiddleName(), 
+				preSignupDTO.getLastName(), preSignupDTO.getEmail(), new Date(preSignupDTO.getDob().getTime()), String.valueOf(preSignupDTO.getGender()));
 		
-		int result2 = jdbcTemplate.update(SQL_INSERT_JOB_DETAILS, preSignupTO.getReportingMgr(), preSignupTO.getTeamLead(), 
-				new Date(preSignupTO.getDoj().getTime()), preSignupTO.getProjectId(), preSignupTO.getEmployeeCode());
+		int result2 = jdbcTemplate.update(SQL_INSERT_JOB_DETAILS, preSignupDTO.getReportingMgr(), preSignupDTO.getTeamLead(), 
+				new Date(preSignupDTO.getDoj().getTime()), preSignupDTO.getProjectId(), preSignupDTO.getEmployeeCode());
 		
 		return result1 > 0 && result2 > 0;
 	}

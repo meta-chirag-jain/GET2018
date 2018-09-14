@@ -1,4 +1,4 @@
-package com.metacube.training;
+package com.metacube.training.EADAssignment10;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

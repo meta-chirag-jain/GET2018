@@ -11,10 +11,6 @@ import org.springframework.stereotype.Repository;
 import com.metacube.training.mappers.SkillMapper;
 import com.metacube.training.model.Skill;
 
-/**
- * @author Prakalpa-Rathore
- *
- */
 @Repository
 public class SkillDAOImpl implements SkillDAO {
 

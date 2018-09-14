@@ -2,13 +2,13 @@ package com.metacube.training.service;
 
 import java.util.List;
 
-import com.metacube.training.dto.PreSignupTO;
+import com.metacube.training.dto.PreSignupDTO;
 import com.metacube.training.enums.SearchCriteria;
 import com.metacube.training.model.Employee;
 
 public interface EmployeeService {
 
-	public boolean addEmployee(PreSignupTO preSignupTO);
+	public boolean addEmployee(PreSignupDTO preSignupDTO);
 	
 	public List<Employee> getAllEmployees();
 	

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.metacube.training.dao.EmployeeDAO;
-import com.metacube.training.dto.PreSignupTO;
+import com.metacube.training.dto.PreSignupDTO;
 import com.metacube.training.enums.SearchCriteria;
 import com.metacube.training.model.Employee;
 
@@ -29,15 +29,15 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 	
 	
-	public boolean addEmployee(PreSignupTO preSignupTO) {
+	public boolean addEmployee(PreSignupDTO preSignupDTO) {
 		
 		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(preSignupTO.getDoj());
+		calendar.setTime(preSignupDTO.getDoj());
 		int year = calendar.get(Calendar.YEAR);
 		
-		preSignupTO.setEmployeeCode(generateEmployeeCode(year));
+		preSignupDTO.setEmployeeCode(generateEmployeeCode(year));
 		
-		return employeeDao.preSignup(preSignupTO);
+		return employeeDao.preSignup(preSignupDTO);
 	}
 
 

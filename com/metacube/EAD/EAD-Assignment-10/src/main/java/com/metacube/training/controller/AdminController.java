@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.metacube.training.dto.PreSignupTO;
+import com.metacube.training.dto.PreSignupDTO;
 import com.metacube.training.enums.SearchCriteria;
 import com.metacube.training.model.Employee;
 import com.metacube.training.model.JobTitle;
@@ -60,10 +60,12 @@ public class AdminController {
 		
 		String view;
 		
-		if(adminService.isValidLogin(username, password))
+		if(adminService.isValidLogin(username, password)) {
 			view = "redirect:/admin/dashboard";
-		else
+		}
+		else {
 			view = "admin/login";
+		}
 		
 		return new ModelAndView(view);
 	}
@@ -172,19 +174,19 @@ public class AdminController {
 		Date dateOfBirth = format.parse(dob);
 		Date dateOfJoining = format.parse(doj);
 		
-		PreSignupTO preSignupTO = new PreSignupTO();
-		preSignupTO.setFirstName(firstName);
-		preSignupTO.setMiddleName(middleName);
-		preSignupTO.setLastName(lastName);
-		preSignupTO.setEmail(email);
-		preSignupTO.setDob(dateOfBirth);
-		preSignupTO.setGender(gender);
-		preSignupTO.setDoj(dateOfJoining);
-		preSignupTO.setReportingMgr(reportingMgr);
-		preSignupTO.setTeamLead(teamLead);
-		preSignupTO.setProjectId(projectId);
+		PreSignupDTO preSignupDTO = new PreSignupDTO();
+		preSignupDTO.setFirstName(firstName);
+		preSignupDTO.setMiddleName(middleName);
+		preSignupDTO.setLastName(lastName);
+		preSignupDTO.setEmail(email);
+		preSignupDTO.setDob(dateOfBirth);
+		preSignupDTO.setGender(gender);
+		preSignupDTO.setDoj(dateOfJoining);
+		preSignupDTO.setReportingMgr(reportingMgr);
+		preSignupDTO.setTeamLead(teamLead);
+		preSignupDTO.setProjectId(projectId);
 		
-		employeeService.addEmployee(preSignupTO);
+		employeeService.addEmployee(preSignupDTO);
 		
 		return new ModelAndView("redirect:/admin/addEmployee");
 	}

@@ -2,11 +2,7 @@ package com.metacube.training.dto;
 
 import java.util.Date;
 
-/**
- * @author Prakalpa-Rathore
- *
- */
-public class PreSignupTO {
+public class PreSignupDTO {
 
 	private String employeeCode, firstName, middleName, lastName, email, reportingMgr, TeamLead;
 	private Date dob, doj;

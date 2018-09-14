@@ -3,10 +3,6 @@ package com.metacube.training.model;
 import java.io.InputStream;
 import java.util.Date;
 
-/**
- * @author Prakalpa-Rathore
- *
- */
 public class Project {
 
 	int projectId;

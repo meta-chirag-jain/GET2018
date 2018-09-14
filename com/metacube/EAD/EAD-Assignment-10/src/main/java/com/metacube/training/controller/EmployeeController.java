@@ -46,10 +46,12 @@ public class EmployeeController {
 		
 		String view;
 		
-		if(employeeService.isValidLogin(username, password))
+		if(employeeService.isValidLogin(username, password)) {
 			view = "redirect:/employee/dashboard";
-		else
+		}
+		else {
 			view = "employee/login";
+		}
 		
 		return new ModelAndView(view, "email", username);
 	}
@@ -79,8 +81,9 @@ public class EmployeeController {
 	        
 	        return "employee/sentEmail";
 	    }
-	    else
-	        return "employee/resetPassword";
+	    else {
+	    	return "employee/resetPassword";
+	    }
     }
 	
 	
@@ -119,10 +122,12 @@ public class EmployeeController {
 		employee.setSkypeId(skypeId);
 		employee.setEnabled(enabled);
 		
-		if(!"".equals(password) && password.equals(confirmPassword))
+		if(!"".equals(password) && password.equals(confirmPassword)) {
 			employee.setPassword(password);
-		else
+		}
+		else {
 			employee.setPassword(oldPassword);
+		}
 		
 		employeeService.addSkills(skills, employeeCode);
 		employeeService.updateEmployee(employee);

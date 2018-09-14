@@ -2,17 +2,13 @@ package com.metacube.training.dao;
 
 import java.util.List;
 
-import com.metacube.training.dto.PreSignupTO;
+import com.metacube.training.dto.PreSignupDTO;
 import com.metacube.training.model.Employee;
 import com.metacube.training.model.Skill;
 
-/**
- * @author Prakalpa-Rathore
- *
- */
 public interface EmployeeDAO {
 
-	public boolean preSignup(PreSignupTO preSignupTO);
+	public boolean preSignup(PreSignupDTO preSignupDTO);
 	
 	public List<Employee> getAllEmployees();
 	
