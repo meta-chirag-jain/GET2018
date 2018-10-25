@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Form</title>
+
+        <link rel="stylesheet" href="css/Form.css" />
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    </head>
+
+    <body>
+        
+        <div class="main">
+            <h1>Contact Us Today!</h1>
+            
+            <form action=" " method="get">
+
+                <div class="container">
+                    <div class="titles">First Name:</div>
+                    <div class="inputs">
+                        <span class="icon"><i class="fas fa-user"></i></span>
+                        <input type="text" name="FirstName" id="FirstName" placeholder="First Name" pattern="[A-Za-z]{2,}" required oninvalid="this.setCustomValidity('Enter your first name')">
+                    </div>
+                </div>
+                
+                <div class="container">
+                    <div class="titles">Last Name:</div>
+                    <div class="inputs">
+                        <span class="icon"><i class="fa fa-user"></i></span>
+                        <input type="text" name="LastName" id="LastName" placeholder="Last Name" pattern="[A-Za-z]{2,}" required oninvalid="this.setCustomValidity('Enter your last name')">
+                    </div>
+                </div>
+                
+                <div class="container">
+                    <div class="titles">E-Mail:</div>
+                    <div class="inputs">
+                        <span class="icon"><i class="fa fa-envelope"></i></span>
+                    <input type="email" name="Email" placeholder="E-mail Address" required>
+                    </div>
+                </div>
+                
+                <div class="container">
+                    <div class="titles">Phone #:</div>
+                    <div class="inputs">
+                        <span class="icon"><i class="fa fa-phone"></i></span>
+                    <input type="tel" name="Phone" placeholder="(845)555-1212" pattern="[0-9]{10,12}" required oninvalid="this.setCustomValidity('Enter your phone number')">
+                    </div>
+                </div>
+                
+                <div class="container">
+                    <div class="titles">Address:</div>
+                    <div class="inputs">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                    <input type="text" name="Address" placeholder="Address" required>
+                    </div>
+                </div>
+                
+                <div class="container">
+                    <div class="titles">City:</div>
+                    <div class="inputs">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                    <input type="text" name="City" placeholder="City" pattern="[A-Za-z]{3,}" required oninvalid="this.setCustomValidity('Enter your city name')">
+                    </div>
+                </div>
+                
+                <div class="container">
+                    <div class="titles">State:</div>
+                    <div class="inputs">
+                        <span class="icon"><i class="fas fa-list"></i></span>
+                    <select name="State">
+                        <option value="n/a" disabled selected>Please select your state</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="MadhyaPradesh">Madhya Pradesh</option>
+                        <option value="UttarPradesh">Uttar Pradesh</option>
+                        <option value="Haryana">Haryana</option>
+                    </select>
+                    </div>
+                </div>
+                
+                <div class="container">
+                    <div class="titles">Zip Code:</div>
+                    <div class="inputs">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                    <input type="text" name="ZipCode" placeholder="Zip Code" pattern="[0-9]{6}" required oninvalid="this.setCustomValidity('Enter your zipcode')">
+                    </div>
+                </div>
+                
+                <div class="container">
+                    <div class="titles">Website or domain name:</div>
+                    <div class="inputs">
+                        <span class="icon"><i class="fas fa-globe-asia"></i></span>
+                    <input type="url" name="DomainName" placeholder="Website or domain name" required>
+                    </div>
+                </div>
+                
+                <div class="container">
+                    <div class="titles">Do you have hosting?</div>
+                    <div class="radio-input">
+                        <label><input type="radio" name="hosting" value="Yes">Yes</label>
+                        <label><input type="radio" name="hosting" value="No"/>No</label>
+                    </div>
+                </div>
+                
+                <div class="container">
+                    <div class="titles">Project Description</div>
+                    <div class="inputs">
+                        <span class="icon"><i class="fas fa-pencil-alt"></i></span>
+                        <textarea rows="3" cols="23" placeholder="Project Description"></textarea>
+                    </div>
+                </div>
+
+                <button onclick=" " class="btn">Send<i class="fa fa-paper-plane"></i>
+                </button>
+                
+            </form>
+
+        </div>
+
+
+    </body>
+
+</html>
