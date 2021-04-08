@@ -1,0 +1,53 @@
+{
+    "users": [
+        {
+            "id": 8,
+            "name": "Chirag",
+            "phone": "7896541230",
+            "city": "Udaipur"
+
+    },
+        {
+            "id": "2",
+            "name": "Sourav",
+            "phone": "9632587410",
+            "city": "Jaipur"
+    },
+        {
+            "id": "3",
+            "name": "Abhay",
+            "phone": "9513074268",
+            "city": "Jaipur"
+    },
+        {
+            "id": "4",
+            "name": "Namrata",
+            "phone": "9845632017",
+            "city": "Jaipur"
+    },
+        {
+            "id": "5",
+            "name": "Tanu",
+            "phone": "9874563210",
+            "city": "Jaipur"
+    },
+        {
+            "id": 6,
+            "name": "Niraj",
+            "phone": "7896541230",
+            "city": "Alwar"
+    },
+        {
+            "id": 7,
+            "name": "xyz",
+            "phone": "9874563210",
+            "city": "pqr"
+    },
+        {
+            "id": "1",
+            "name": "Niraj",
+            "phone": "9874563210",
+            "city": "Jaipur"
+    }
+  ]
+}
